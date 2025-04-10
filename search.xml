@@ -4,182 +4,58 @@
   
     
     <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.6/"/>
-      <url>/2025/04/06/2025.4.6/</url>
+      <title>关于我、重生到500年前凭借C语言改变世界科技vlog.2——C语言数据类型和变量</title>
+      <link href="/2024/10/10/C%E8%AF%AD%E8%A8%80/vlog2/"/>
+      <url>/2024/10/10/C%E8%AF%AD%E8%A8%80/vlog2/</url>
       
-        <content type="html"><![CDATA[<h2 id="这是一个测试文章"><a href="#这是一个测试文章" class="headerlink" title="这是一个测试文章"></a>这是一个测试文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%2010/"/>
-      <url>/2025/04/06/2025.4.9%20copy%2010/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="数据类型的介绍"><a href="#数据类型的介绍" class="headerlink" title="数据类型的介绍"></a>数据类型的介绍</h1><h2 id="数据类型分类"><a href="#数据类型分类" class="headerlink" title="数据类型分类"></a>数据类型分类</h2><p>C语言的数据类型多种多样，类型不仅是我们了解数据的开始，也是数据初始化、函数自定义等的操作，编译器只有知道了数据的类型，才能进行相应的操作<br><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/2edd3369e3a5a1ac391287b5394a135.png" alt="在这里插入图片描述"></p><p><strong>字符型</strong>：char、[signed] char（有符号字符）、[unsigned] char（无符号字符）</p><p><strong>整型</strong>：int、[signed] int、unsigned int<br><strong>短整型</strong>：short [int]、[signed] short [int]、unsigned int [int]<br><strong>长整型</strong>：long [int]、[signed] long [int]、unsigned long [int]<br><strong>更长的整型</strong>：long long [int]、[signed] long long [int]、unsigned long long [int]</p><p><strong>浮点型</strong>：float、double、long double</p><p><strong>布尔类型</strong>：布尔类型本不是专门的类型，后来为了表示真假，引入了布尔类型_Bool或bool，使用布尔类型必须包含头文件#include &lt;stdbool.h&gt;,布尔类型返回的是<strong>true或false</strong>，表示真假</p><p>注意每种类型的数据都有自己的长度，存储的数据范围有所差异，这里就不过多赘述（详情可看<a href="https://legacy.cplusplus.com/%EF%BC%89">https://legacy.cplusplus.com/）</a></p><h2 id="sizeof操作符"><a href="#sizeof操作符" class="headerlink" title="sizeof操作符"></a>sizeof操作符</h2><p>sizeof是一个关键字，也是个操作符，用于计算操作符数的类型长度，单位是字节<br>sizeof有两种计算方式：<strong>sizeof（类型）、sizeof 表达式</strong><br>这里要注意的是sizeof后边的表达式是不参与真实运算的，例如：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">​</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span> result = <span class="keyword">sizeof</span>(num + <span class="number">20</span>);</span><br><span class="line">    <span class="comment">// 这里 num + 20 并不会真正进行加法运算，只是根据 num 的类zd型（int）来确定大小。</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of num + 20: %zd\n&quot;</span>, result);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>显而易见这里输出的result的值应为4，在VS2022的X64环境下，常见的int为4个字节，char为1个字节，这里只是根据其类型得出是4个字节。而且sizeof需要用%zd（无符号整型）来打印，sizeof的计算结果是<strong>size_t类型</strong>的。</p><p>sizeof 运算符的返回值，C 语言只规定是<strong>无符号整数</strong>，并没有规定具体的类型，而是留给系统自己去决定， sizeof 到底返回什么类型。不同的系统中，返回值的类型有可能是unsigned int ，也有可能是 unsigned long ，甚至是 unsigned long long ，对应的 printf() 占位符分别是 %u 、 %lu 和 %llu 。这样不利于程序的可移植性。C 语言提供了⼀个解决方法，创造了⼀个类型别名 size_t ，用来统⼀表示 sizeof 的返回值类型。对应当前系统的 sizeof 的返回值类型，可能是 unsigned int ，也可能是unsigned long long</p><h2 id="signed和unsigned"><a href="#signed和unsigned" class="headerlink" title="signed和unsigned"></a>signed和unsigned</h2><p>signed表示一个类型带有正负号，unsigned表示一个类型不带有正负号，也就是正整数，所以对于int来说完整的写法应该是signed int，只不过平常忽略不写，但写了也不算错</p><p>int 类型也可以不带正负号，只表示非负整数，这时就必须使用关键字unsigned声明变量。unsigned int里面的int可以省略，也就是可以写成unsigned，字符char也存在signed、unsigned</p><p>值得注意的是C语言规定char是否默认带有正负号由当前系统决定，这就是说，char 不等同于 signed char ，它有可能是 signed char ，也有可能是unsigned char </p><h1 id="变量的介绍"><a href="#变量的介绍" class="headerlink" title="变量的介绍"></a>变量的介绍</h1><h2 id="创建与初始化"><a href="#创建与初始化" class="headerlink" title="创建与初始化"></a>创建与初始化</h2><p>我们都知道变化的量叫变量，不变的称为常量，创建形式为<strong>data_type name</strong>，第一个为数据类型，第二个为变量名，例如int a &#x3D; 10，在变量在创建的时候就给⼀个初始值，这就叫初始化</p><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p><strong>全局变量</strong>：在大括号外部定义的变量就是全局变量<br>全局变量的使用范围更广，整个工程中想使用，都是有办法使用的</p><p><strong>局部变量</strong>：在大括号内部定义的变量就是局部变量<br>局部变量的使用范围是比较局限，只能在自己所在的局部范围内使用的</p><p>注意当局部变量和全局变量同名时，<strong>局部变量优先使用</strong></p><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>内存中有三个区域：栈区、堆区、静态区</p><ol><li>局部变量是放在内存的栈区</li><li>全局变量是放在内存的静态区</li><li>堆区是用来动态内存管理的（后期会介绍）</li></ol><h1 id="操作符的介绍"><a href="#操作符的介绍" class="headerlink" title="操作符的介绍"></a>操作符的介绍</h1><h2 id="算术操作符：-、-、-、-、"><a href="#算术操作符：-、-、-、-、" class="headerlink" title="算术操作符：+、-、*、&#x2F;、%"></a>算术操作符：+、-、*、&#x2F;、%</h2><p>C语⾔中为了方便运算，提供了⼀系列操作符，其中有⼀组操作符叫：算术操作符。<br>分别是： + - * &#x2F; % ，这些操作符需要两个操作数进行计算的都是<strong>双目操作符</strong>，操作符也叫做<strong>运算符</strong></p><p>用+ 和 - 来完成加法和减法</p><p>运算符 * 用来完成乘法</p><p>运算符 &#x2F; 用来完成除法，除号的两端如果是整数，执行的是整数除法，得到的结果也是整数，<strong>如果运算数中至少有一个float浮点数，就能得到浮点数</strong></p><p>运算符 % 表示求模(余)运算，即返回两个整数相除的余值。这个运算符只能用于整数，不能用于浮点数，<strong>负数求模的规则是，结果的正负号由第⼀个运算数的正负号决定</strong></p><h2 id="赋值操作符：-和复合赋值"><a href="#赋值操作符：-和复合赋值" class="headerlink" title="赋值操作符：&#x3D;和复合赋值"></a>赋值操作符：&#x3D;和复合赋值</h2><p>赋值操作符 &#x3D; 是⼀个随时可以给变量赋值的操作符，要赋的值放在右边。赋值也可以连续赋值，从右向左依次赋值</p><p>对一个数进行自增、自减操作</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">a = a+<span class="number">3</span>;</span><br><span class="line">a = a<span class="number">-2</span>;</span><br></pre></td></tr></table></figure><p>用复合赋值的方法：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">a += <span class="number">3</span>;</span><br><span class="line">a -= <span class="number">2</span>;</span><br></pre></td></tr></table></figure><p>代码会显得更方便简洁，对以上的算术操作符都适用</p><h2 id="单目操作符：-、–、-、"><a href="#单目操作符：-、–、-、" class="headerlink" title="单目操作符：++、–、+、-"></a>单目操作符：++、–、+、-</h2><p>C语言中还有⼀些操作符只有⼀个操作数，被称<br>为单目操作符。 ++、–、+(正)、-(负) 就是单目操作符</p><p><strong>前置++</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> b = ++a;<span class="comment">//++的操作数是a，是放在a的前⾯的，就是前置++</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;a=%d b=%d\n&quot;</span>,a , b);</span><br></pre></td></tr></table></figure><p><strong>计算口诀：先+1，后使用</strong><br>a原来是10，先+1，后a变成了11，再使用就是赋值给b，b得到的也是11，所以计算后，a和b都是11</p><p><strong>后置++</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> b = a++;<span class="comment">//++的操作数是a，是放在a的后⾯的，就是后置++</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;a=%d b=%d\n&quot;</span>,a , b);</span><br></pre></td></tr></table></figure><p><strong>计算口诀：先使用，后+1</strong><br>a原来是10，先使用，就是先赋值给b，b得到了10，然后再+1，然后a变成了11，所以直接计算后a是11，b是10</p><p>前置–和后置++与上面同理</p><h1 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h1><p>以一段代码做例子就明白了</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">3.14</span>;</span><br><span class="line"><span class="comment">//a的是int类型, 3.14是double类型，两边的类型不⼀致，编译器会报警告</span></span><br></pre></td></tr></table></figure><p>消除这个警告，就可以使用强制类型转换</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = (<span class="type">int</span>)<span class="number">3.14</span>;<span class="comment">//意思是将3.14强制类型转换为int类型，这种强制类型转换只取整数部分入代码片</span></span><br></pre></td></tr></table></figure><p>注意强制转化只在万不得已的时候使用</p><h1 id="占位符的介绍及使用"><a href="#占位符的介绍及使用" class="headerlink" title="占位符的介绍及使用"></a>占位符的介绍及使用</h1><p>占位符在printf中这样使用：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">&quot;There are %d apples\n&quot;</span>, <span class="number">3</span>);</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里输出There are 3 apples，这样输出语句更能提高程序的稳定性和准确性</p><p>除此之外，还有很多常见的占位符<br>• %c ：字符。<br>• %d ：十进制整数<br>• %f ：小数（包含 float 类型和 double 类型）<br>• %p ：指针（用来打印地址）<br>• %s ：字符串。<br>• %u ：无符号整数<br>• %x ：十六进制整数<br>• %zd ： size_t 类型</p><p><strong>限定宽度</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">&quot;%5d\n&quot;</span>, <span class="number">123</span>); <span class="comment">// 输出为 &quot;  123&quot;</span></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> %5d 表示这个占位符的宽度至少为5位。如果不满5位，对应的值的前面会添加空格。输出的值默认是右对齐，即输出内容前面会有空格<br> 如果希望改成左对齐，在输出内容后面添加空格，可以在占位符的 % 的后面插入⼀个 - 号</p><p><strong>总是显示正负号</strong></p><p>默认情况下， printf() 不对正数显示 + 号，只对负数显示 - 号。如果想让正数也输出 + 号，可<br>以在占位符的 % 后面加⼀个 +</p><p><strong>限定小数位数</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出 Number is 0.50</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">&quot;Number is %.2f\n&quot;</span>, <span class="number">0.5</span>);</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果希望小数点后面输出3位（ 0.500 ），占位符就要写成 %.3f<br>也可以和限定宽度结合使用，比如%6.2f，输出为”*<em>0.50”(这里的</em>表示空格）<br>最小宽度和小数位数这两个限定值，都可以用 *代替，通过 printf() 的参数传入</p><p><strong>输出部分字符串</strong></p><p>可以用 %.[m]s 指定输出的长度，其中 [m] 代表⼀个数字，表示所要输出的长度</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出 hello</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">&quot;%.5s\n&quot;</span>, <span class="string">&quot;hello world&quot;</span>);</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里输出前五个字符，即“hello”</p><h1 id="scanf函数的介绍"><a href="#scanf函数的介绍" class="headerlink" title="scanf函数的介绍"></a>scanf函数的介绍</h1><p>scanf() 函数用于读取用户的键盘输入<br>程序运行到这个语句时，会停下来，等待用户从键盘输入，输入数据、按下回车键后， scanf() 就会处理用户的输入，将其存入变量</p><p>scanf的使用方法与printf类似</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d%d%f%f&quot;</span>, &amp;i, &amp;j, &amp;x, &amp;y);</span><br></pre></td></tr></table></figure><p>不过scanf需要加取地址符号&amp;（后面会讲）</p><p>注意scanf() 的返回值是一个整数，表示成功读取的变量个数。<br>如果没有读取任何项，或者匹配失败，则返回 0 。<br>如果在成功读取任何数据之前，发生了读取错误或者遇到读取到文件结尾，则返回常量 EOF (-1)</p><h1 id="希望读者们多多三连支持"><a href="#希望读者们多多三连支持" class="headerlink" title="希望读者们多多三连支持"></a>希望读者们多多三连支持</h1><h1 id="小编会持续更新"><a href="#小编会持续更新" class="headerlink" title="小编会持续更新"></a>小编会持续更新</h1><h1 id="你们的鼓励就是我前进的动力！"><a href="#你们的鼓励就是我前进的动力！" class="headerlink" title="你们的鼓励就是我前进的动力！"></a>你们的鼓励就是我前进的动力！</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/e499c20858c89482285baee013c1b66.png" alt="在这里插入图片描述"></p>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%2012/"/>
-      <url>/2025/04/06/2025.4.9%20copy%2012/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
       
       
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
+            
+            <tag> 科技 </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%2011/"/>
-      <url>/2025/04/06/2025.4.9%20copy%2011/</url>
+      <title>关于我、重生到500年前凭借C语言改变世界科技vlog.1——C语言常见概念</title>
+      <link href="/2024/10/08/C%E8%AF%AD%E8%A8%80/vlog1/"/>
+      <url>/2024/10/08/C%E8%AF%AD%E8%A8%80/vlog1/</url>
       
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%202/"/>
-      <url>/2025/04/06/2025.4.9%20copy%202/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
+        <content type="html"><![CDATA[<p>​</p><h1 id="C语言是什么？和C-有什么区别？"><a href="#C语言是什么？和C-有什么区别？" class="headerlink" title="C语言是什么？和C++有什么区别？"></a>C语言是什么？和C++有什么区别？</h1><p>定义：C 语言是一种通用的、面向过程的计算机编程语言。它最初由丹尼斯・里奇（Dennis Ritchie）在 20 世纪 70 年代初于贝尔实验室开发，用于编写 UNIX 操作系统。C 语言具有高效、简洁、可移植性强等特点。</p><p>简单来说：人和人交流使用的是自然语言，那么计算机语言就是人和计算机交流的桥梁，C语言就是众多计算机语言中的⼀种</p><p>C语言和C++的区别:C++是C语言的plus版，C语言是面向过程的语言，把大象放进冰箱需要多少步？需要三步，打开冰箱门，放入大象，关闭冰箱，这就是面向过程。C++是面向对象的语言，比C语言难，但是直接学习C++也需要接触面向过程的内容，大象的体重？身高？冰箱的尺寸？制冷效率？这就是面向对象的内容。</p><h1 id="编译器的选择和使用"><a href="#编译器的选择和使用" class="headerlink" title="编译器的选择和使用"></a>编译器的选择和使用</h1><p>我们需要把C语言转化成机器能够执行的机器命令，就需要一些编译器的集成开发环境来实现。<br>那我们常见的C语言编译器都有哪些呢？</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/8857f0d6431ab38cd709e5cb498296d.png" alt="DevC++"></p><p>集成了gcc开发环境，也是学校和一些竞赛常用的，具有小巧灵活的特点，但是对代码风格的养成不太友好，不利于码农写出好看标准的代码，故选择性使用</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/e65d9b52ab12f4680575f00495919d3.png" alt="Clion"></p><p>集成了CMake开发环境，编译器可以根据个人习惯配置，还是不错的，但介于他是个收费软件，故不做目前推荐使用</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/7cc95ca71bd8e2d6c6da762a02a578d.png" alt="VS2022"></p><p>集成了MSVC开发环境，安装报包较大一些，安装简单，无需多余配置，企业中也较多使用，中文界面对初学者也很友好,使用起来非常方便，便于培养代码风格，是作者最喜欢用的，故在此推荐使用</p><h1 id="项目、源文件、头文件的介绍"><a href="#项目、源文件、头文件的介绍" class="headerlink" title="项目、源文件、头文件的介绍"></a>项目、源文件、头文件的介绍</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/138971510e0e0be6039199b0bbd6c55.png" alt="在这里插入图片描述"></p><p>安装好VS2022后，我们创建一个空白界面，这就是一个项目</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/d2b2428fd1f2ce8d8ead0bc68427df7.png" alt="在这里插入图片描述"></p><p>如图所示，以.h结尾的就叫做头文件，以.c结尾的就叫做源文件 </p><p>头文件定义：是一种包含函数声明、变量声明、宏定义和类型定义等内容的文件，通常以.h（在 C、C++ 等编程语言中）为扩展名。</p><p>简单来说就是包含了自定义函数以及编译器自带函数等的文件</p><p>源文件定义：源文件是包含实际函数定义、变量定义等可执行代码的文件，在 C、C++ 等语言中通常以.c或.cpp（C++ 源文件）为扩展名。</p><p>简单来说我们在头文件下创建和执行的代码所在的文件就叫源文件</p><h1 id="main函数、printf函数、库函数的介绍"><a href="#main函数、printf函数、库函数的介绍" class="headerlink" title="main函数、printf函数、库函数的介绍"></a>main函数、printf函数、库函数的介绍</h1><p> main函数</p><p>是程序的入口点。这意味着当程序开始运行时，操作系统会首先调用main函数。 它是整个程序执行的起始位置，就像一场演出的开场节目一样，程序的其他部分都是在main函数的调用或控制下逐步执行的。</p><p>main函数也被叫做主函数，在写”hello world”代码时，前面的int表示函数执行结束时返回的类型，所以在main函数最后写return 0；正好前后呼应，返回一个0（假）使代码停止</p><p>• main函数有且仅有⼀个<br>• 即使⼀个项目中有多个.c文件，但是只能有⼀个main函数（因为程序的入口只能有⼀个）<br>• main后边的()不能漏掉了<br>• 代码中不能使用中文符号，比如括号和分号<br>• 一条语句结束后，有分号<br>printf函数<br>实现代码在屏幕上的打印，printf也是个库函数，printf可以打印各种类型的数据<br>库函数<br>一些代码会被我们重复性的去使用，为了提高程序员的代码开发效率，C语言标准规定了一些函数，由编译器进行实现提供给程序员使用，这些函数组成了一个库就被称为标准库，也叫库函数，库函数一般会声明在头文件中，所以使用库函数要包含对应的头文件</p><h1 id="关键字的介绍"><a href="#关键字的介绍" class="headerlink" title="关键字的介绍"></a>关键字的介绍</h1><p>像int、if、return这类保留名字的符号被称为关键字<br>• 关键字都有特殊的意义，是保留给C语言使用的<br>• 程序员自己在创建标识符的时候是不能和关键字重复的<br>• 关键字也是不能自己创建的。<br>6.字符、字符串、ASC||编码的介绍<br>像a、b、@、&amp;等这些叫做字符，使用单括号将他们括起来<br>像”abcdef”叫做字符串，使用双括号将他们括起来<br>计算机中的数据是以二进制形式存储的，给每个字符都编码一个二进制序列，这个叫做编码，所以出台了一个标准ASC||编码方便相互同通信，敲代码 </p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/74334dbd08f3100de253af978e582e9.png" alt="在这里插入图片描述"></p><p>• 字符A-Z的ASCII码值从65-90<br>• 字符a-z的ASCII码值从97-122<br>• 对应的大小写字符(a和A)的ASCII码值的差值是32<br>• 数字字符0-9的ASCII码值从48-57<br>• 换行\n 的ASCII值是：10<br>• 在这些字符中ASCII码值从0~31 这32个字符是不可打印字符，无法打印在屏幕上观察</p><h1 id="转义字符的介绍"><a href="#转义字符的介绍" class="headerlink" title="转义字符的介绍"></a>转义字符的介绍</h1><p>转义字符其实就是转变代码意思的字符<br>C语言中像这样的转义字符还有一些，具体如下：<br>• ? ：在书写连续多个问号时使用，防止他们被解析成三字母词，在新的编译器上没法验证了。<br>• \ ：用于表示⼀个反斜杠，防止它被解释为⼀个转义序列符。<br>• \a ：警报，这会使得终端发出警报声或出现闪烁，或者两者同时发生。<br>• \b ：退格键，光标回退⼀个字符，但不删除字符。<br>• \f ：换页符，光标移到下一页。在现代系统上，这已经反映不出来了，行为改成类似于 \v 。<br>• \n ：换行符。<br>• \r ：回车符，光标移到同一行的开头。<br>• \t ：制表符，光标移到下⼀个水平制表位，通常是下⼀个4&#x2F;8的倍数。<br>• \ddd ：d d d表示1~3个八进制的数字。 如：\130 表示字符X<br>• \xdd ：d d表示2个⼗六进制数字。 如： \x30 表示字符0<br>• \0 ：null 字符，代表没有内容， \0 就是 \ddd 这类转义字符的⼀种，⽤于字符串的结束标志，其<br>ASCII码值是0</p><h1 id="注释的重要性"><a href="#注释的重要性" class="headerlink" title="注释的重要性"></a>注释的重要性</h1><p>注释是一种对代码的说明，通常在&#x2F;&#x2F;后进行注释，注释后的代码编译器会忽略注释，所以注释是给程序员看的，好的注释可以帮助我们理解代码<br>另一种注释方法将注释放在 &#x2F;<em>…</em>&#x2F; 之间，内部可以分行<br>总的来说写注释提高了代码的可读性，能够描述变量和函数的用途，方便代码的维护<br>希望读者们多多三连支持<br>小编会持续更新<br>你们的鼓励就是我前进的动力！</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/76973ea184d17f67b7807a7829d0af4.png" alt="在这里插入图片描述"></p><p>​</p>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%207/"/>
-      <url>/2025/04/06/2025.4.9%20copy%207/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%203/"/>
-      <url>/2025/04/06/2025.4.9%20copy%203/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%205/"/>
-      <url>/2025/04/06/2025.4.9%20copy%205/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy/"/>
-      <url>/2025/04/06/2025.4.9%20copy/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%206/"/>
-      <url>/2025/04/06/2025.4.9%20copy%206/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%204/"/>
-      <url>/2025/04/06/2025.4.9%20copy%204/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%209/"/>
-      <url>/2025/04/06/2025.4.9%20copy%209/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9/"/>
-      <url>/2025/04/06/2025.4.9/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/2025/04/06/2025.4.9%20copy%208/"/>
-      <url>/2025/04/06/2025.4.9%20copy%208/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是一个测试双侧栏的文章"><a href="#这是一个测试双侧栏的文章" class="headerlink" title="这是一个测试双侧栏的文章"></a>这是一个测试双侧栏的文章</h2>]]></content>
-      
-      
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
+            
+            <tag> 科技 </tag>
+            
+        </tags>
       
     </entry>
     
