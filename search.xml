@@ -42,12 +42,18 @@
         <content type="html"><![CDATA[<p>在学习本专题前，请详细学习有关 string 的使用</p><blockquote><p>传送门：<a href="https://blog.csdn.net/Zero_VPN/article/details/145412842?spm=1001.2014.3001.5502">C++效率掌握之STL库：string函数全解</a></p></blockquote><h1 id="学习string底层的必要性"><a href="#学习string底层的必要性" class="headerlink" title="学习string底层的必要性"></a>学习string底层的必要性</h1><blockquote><p>在 C++ 中，知道 string 是如何以字符数组的形式存储，以及字符串连接、查找等操作的时间复杂度，就可以避免在循环中频繁进行字符串连接操作，因为这可能会导致多次内存重新分配和数据复制，从而影响性能，而是选择更高效的方式，如预先分配足够的空间。同时，理解 string 底层对内存的管理方式，有助于优化内存使用，避免空指针和越界的情况出现</p></blockquote><h1 id="string类对象基本函数实现"><a href="#string类对象基本函数实现" class="headerlink" title="string类对象基本函数实现"></a>string类对象基本函数实现</h1><p>实现一个类首先先从其基本函数开始，包括<code>构造函数</code>、<code>析构函数</code>、<code>内存管理</code>等</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/83a0102887cdff292fe5edc21020ddd.png" alt="请添加图片描述"></p><p>简单实现一个<code>空构造</code>和<code>字符串构造</code>，因为还没写 <code>string</code> 流输出的运算符重载，先将 <code>string</code> 类转成 <code>C</code> 语言风格来输出</p><p>🔥<strong>值得注意的是：</strong> 注意<code>变量声明的顺序</code>要和<code>初始化列表</code>一致，也要注意<code>变量初始化顺序对另一个变量的影响</code>；<code>=运算符重载</code>：自我赋值是指对象在赋值时被赋值给自己，例如 <code>s1 = s1</code>，在这种情况下，如果我们没有进行检查，就会先删除对象的内存，然后再试图复制同一个对象的内容，这样会导致程序崩溃。因此，重载赋值运算符时，自我赋值检查是非常必要的</p><h1 id="string类对象的遍历"><a href="#string类对象的遍历" class="headerlink" title="string类对象的遍历"></a>string类对象的遍历</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span> <span class="type">const</span><span class="comment">//加const保证const和普通string都能调用</span></span></span><br><span class="line"><span class="function"></span>&#123;                  <span class="comment">//增加普遍性，涉及权限的缩小</span></span><br><span class="line"><span class="keyword">return</span> _size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span>&amp; <span class="keyword">operator</span>[](<span class="type">size_t</span> pos)<span class="comment">//可读写</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt; _size);</span><br><span class="line"><span class="keyword">return</span> _str[pos];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span>&amp; <span class="keyword">operator</span>[](<span class="type">size_t</span> pos) <span class="type">const</span><span class="comment">//只读</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt; _size);</span><br><span class="line"><span class="keyword">return</span> _str[pos];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span>* iterator;</span><br><span class="line"><span class="function">iterator <span class="title">begin</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">iterator <span class="title">end</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _str + _size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">const</span> <span class="type">char</span>* const_iterator;</span><br><span class="line"><span class="function">iterator <span class="title">begin</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">iterator <span class="title">end</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _str + _size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>想要遍历一个字符串，首先就要知道<code>大小</code>，然后需要用<code>方括号</code>来获取索引，或者用迭代器遍历，<code>迭代器</code>的本质其实就是一个<code>字符数组</code></p><p>🔥<strong>值得注意的是：</strong> </p><ol><li>注意 <code>size</code> 函数和 <code>c_str</code> 函数要具有普遍性，所以要包括 <code>const</code> 变量的情况，，即使是<code>普通类型调用</code>也是<code>权限的缩小</code>，两种情况共用一个函数</li><li><code>operator[]</code> 分为加 <code>const</code> 和不加 <code>const</code> ，分别代表<code>只读</code>和<code>可读写</code></li><li>同样迭代器也分为 <code>iterator</code> 和 <code>const_iterator</code></li><li><code>begin()</code> 指向第一个有效字符，<code>end()</code> 指向最后一个有效字符的后一位</li></ol><h1 id="string类对象的扩容追加"><a href="#string类对象的扩容追加" class="headerlink" title="string类对象的扩容追加"></a>string类对象的扩容追加</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">reserve</span><span class="params">(<span class="type">size_t</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// 检查请求的内存大小 n 是否大于当前的容量 _capacity</span></span><br><span class="line"><span class="keyword">if</span> (n &gt; _capacity)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 若 n 大于 _capacity，则分配 n + 1 个字符的内存空间</span></span><br><span class="line"><span class="comment">// 多分配一个字符是为了存储字符串的结束符 &#x27;\0&#x27;</span></span><br><span class="line"><span class="type">char</span>* tmp = <span class="keyword">new</span> <span class="type">char</span>[n + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原字符串 _str 复制到新分配的内存区域 tmp 中</span></span><br><span class="line"><span class="built_in">strcpy</span>(tmp, _str);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 释放原字符串 _str 所占用的内存空间</span></span><br><span class="line"><span class="keyword">delete</span>[] _str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 _str 指针指向新分配的内存区域 tmp</span></span><br><span class="line">_str = tmp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新当前字符串的容量为 n</span></span><br><span class="line">_capacity = n;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(<span class="type">char</span> ch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// 检查当前字符串的实际字符数量 _size 是否等于其容量 _capacity</span></span><br><span class="line"><span class="keyword">if</span> (_size == _capacity)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 如果容量为 0，将容量扩展为 4；否则将容量扩大为原来的 2 倍</span></span><br><span class="line"><span class="built_in">reserve</span>(_capacity == <span class="number">0</span> ? <span class="number">4</span> : _capacity * <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在字符串的末尾（即 _size 位置）添加新字符 ch</span></span><br><span class="line">_str[_size] = ch;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际字符数量加 1</span></span><br><span class="line">++_size;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在新的字符串末尾添加字符串结束符 &#x27;\0&#x27;</span></span><br><span class="line">_str[_size] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">append</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// 计算要追加的字符串的长度</span></span><br><span class="line"><span class="type">size_t</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检查当前字符串的实际长度 _size 加上要追加的字符串长度 len 是否超过当前容量 _capacity</span></span><br><span class="line"><span class="keyword">if</span> (_size + len &gt; _capacity)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 如果超过容量，调用 reserve 函数进行扩容，扩容后的容量至少为 _size + len</span></span><br><span class="line"><span class="built_in">reserve</span>(_size + len);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将追加的字符串 str 复制到当前字符串 _str 的末尾位置（_str + _size）</span></span><br><span class="line"><span class="built_in">strcpy</span>(_str + _size, str);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新当前字符串的实际长度，加上要追加的字符串的长度</span></span><br><span class="line">_size += len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">string&amp; <span class="keyword">operator</span>+=(<span class="type">const</span> <span class="type">char</span>* str)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">append</span>(str);</span><br><span class="line"><span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>或许扩容添加的函数看起来操作简单，但其实其底层有许多细节</p><p>🔥<strong>值得注意的是：</strong> </p><ol><li><code>reserve</code> 传入的参数 <code>n</code> 指的是有效字符，<code>new</code> 一个新空间时 <code>+1</code> 是为了给 <code>&#39;\0&#39;</code> 留位置，<code>capacity</code> 也表示的是有效字符的容量，同时要记得释放原来指向的不使用的空间</li><li><code>push_back</code> 函数 <code>reserve</code> 时要判断下是因为扩容是 <code>*2</code> ，避免空间为 <code>0</code> 时扩容 <code>*2</code> 导致出错</li><li><code>push_back</code> 通常只是添加一个字符，不会涉及修改，所以不用传 <code>const</code> 参数；<code>append</code> 的参数可能会被错误修改，所以要传 <code>const</code> 参数，普通的参数可以通过权限缩小正常使用函数</li></ol><h1 id="string类对象的插入、删除"><a href="#string类对象的插入、删除" class="headerlink" title="string类对象的插入、删除"></a>string类对象的插入、删除</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">size_t</span> pos, <span class="type">size_t</span> n, <span class="type">char</span> ch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt;= _size);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (_size + n &gt; _capacity)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">reserve</span>(_size + n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">size_t</span> end = _size;</span><br><span class="line"><span class="keyword">while</span> (end &gt;= pos &amp;&amp; end != npos)</span><br><span class="line">&#123;</span><br><span class="line">_str[end + n] = _str[end];</span><br><span class="line">--end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">_str[pos + i] = ch;</span><br><span class="line">&#125;</span><br><span class="line">_size += n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">size_t</span> pos, <span class="type">const</span> <span class="type">char</span>* str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt;= _size);</span><br><span class="line"></span><br><span class="line"><span class="type">size_t</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line"><span class="keyword">if</span> (_size + len &gt; _capacity)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">reserve</span>(_size + len);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">size_t</span> end = _size;</span><br><span class="line"><span class="keyword">while</span> (end &gt;= pos &amp;&amp; end != npos)</span><br><span class="line">&#123;</span><br><span class="line">_str[end + len] = _str[end];</span><br><span class="line">--end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">&#123;</span><br><span class="line">_str[pos + i] = len;</span><br><span class="line">&#125;</span><br><span class="line">_size += len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">erase</span><span class="params">(<span class="type">size_t</span> pos, <span class="type">size_t</span> len = npos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt;= _size);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (len == npos || pos + len &gt;= _size)</span><br><span class="line">&#123;</span><br><span class="line">_str[pos] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">_size = pos;</span><br><span class="line">_str[_size] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="type">size_t</span> end = pos + len;</span><br><span class="line"><span class="keyword">while</span> (end &lt;= _size)</span><br><span class="line">&#123;</span><br><span class="line">_str[pos++] = _str[end++];</span><br><span class="line">&#125;</span><br><span class="line">_size -= len;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><code>string</code> 类的插入删除都利用的是移动覆盖的思想，这里就不画图了，在数据结构阶段就已经学习了大致的思路</p><p>🔥<strong>值得注意的是：</strong> </p><ol><li>这里使用 <code>size_t</code> 类型的 <code>end</code> 作为索引来遍历字符串，<code>size_t</code> 是无符号整数类型。当 <code>end</code> 递减到 <code>0</code> 后再进行 <code>--end</code> 操作时，会发生无符号整数溢出，<code>end</code> 的值会变成 <code>size_t</code> 类型所能表示的最大值，这个值恰好和 <code>npos</code>（被初始化为 <code>-1</code> 转换后的 <code>size_t</code> 最大值）相等<br>如果没有 <code>end != npos</code> 这个条件，当 <code>end</code> 溢出后，<code>end &gt;= pos</code> 仍然可能为真（因为溢出后的值很大），这就会导致循环继续执行，从而造成数组越界访问，引发未定义行为。加上 <code>end != npos</code> 这个条件，当 <code>end</code> 溢出变成 <code>npos</code> 时，循环就会终止，避免了越界访问的问题</li><li>注意 <code>capacity</code> 在 <code>reserve</code> 里已经修改过了，所以外面只需要再修改 <code>size</code> 就行了</li></ol><h1 id="string类对象的查找、提取、大小调整"><a href="#string类对象的查找、提取、大小调整" class="headerlink" title="string类对象的查找、提取、大小调整"></a>string类对象的查找、提取、大小调整</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">find</span><span class="params">(<span class="type">char</span> ch, <span class="type">size_t</span> pos = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt; _size);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = pos; i &lt; _size; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (_str[i] == ch)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> npos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">find</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* str, <span class="type">size_t</span> pos = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt; _size);</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* ptr = <span class="built_in">strstr</span>(_str + pos, str);</span><br><span class="line"><span class="keyword">if</span> (ptr)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> ptr - _str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> npos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">substr</span><span class="params">(<span class="type">size_t</span> pos = <span class="number">0</span>, <span class="type">size_t</span> len = npos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">assert</span>(pos &lt; _size);</span><br><span class="line"></span><br><span class="line"><span class="type">size_t</span> n = len;</span><br><span class="line"><span class="keyword">if</span> (len == npos || len + pos &gt; _size)</span><br><span class="line">&#123;</span><br><span class="line">n = _size - pos;</span><br><span class="line">&#125;</span><br><span class="line">string tmp;</span><br><span class="line">tmp.<span class="built_in">reserve</span>(n);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = pos; i &lt; n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">tmp.<span class="built_in">push_back</span>(_str[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">resize</span><span class="params">(<span class="type">size_t</span> n, <span class="type">char</span> ch = <span class="string">&#x27;\0&#x27;</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (n &lt; _size)</span><br><span class="line">&#123;</span><br><span class="line">_size = n;</span><br><span class="line">_str[_size] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">reserve</span>(n);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = _size; i &lt; n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">_str[i] = ch;</span><br><span class="line">&#125;</span><br><span class="line">_size = n;</span><br><span class="line">_str[_size] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><code>string</code> 的查找操作比较简单，提取要注意提取的长度与原字符串长度的关系，调整大小也要注意 <code>&#39;\0&#39;</code> 的位置</p><p>🔥<strong>值得注意的是：</strong> </p><p><code>return ptr - _str</code>：通过指针相减计算子字符串在原字符串中的起始位置索引。因为 <code>ptr</code> 指向子字符串的起始位置，<code>_str</code> 指向原字符串的起始位置，两者相减得到的差值就是子字符串的起始位置索引</p><h1 id="string类对象的流输出、流提取"><a href="#string类对象的流输出、流提取" class="headerlink" title="string类对象的流输出、流提取"></a>string类对象的流输出、流提取</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">_str[<span class="number">0</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">_size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; out, <span class="type">const</span> string&amp; s)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">out &lt;&lt; s[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">istream&amp; <span class="keyword">operator</span>&gt;&gt;(istream&amp; in, string&amp; s)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 清空字符串 s 原有的内容</span></span><br><span class="line">s.<span class="built_in">clear</span>();</span><br><span class="line"><span class="comment">// 从输入流 in 中读取一个字符并赋值给 ch</span></span><br><span class="line"><span class="type">char</span> ch = in.<span class="built_in">get</span>();</span><br><span class="line"><span class="comment">//处理前缓冲区前面的空格和换行</span></span><br><span class="line"><span class="keyword">while</span> (ch == <span class="string">&#x27; &#x27;</span> || ch == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">&#123;</span><br><span class="line">ch = in.<span class="built_in">get</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义一个大小为 128 的字符数组 buff 用于临时存储字符，初始化为全 &#x27;\0&#x27;</span></span><br><span class="line"><span class="type">char</span> buff[<span class="number">128</span>] = &#123; <span class="string">&#x27;\0&#x27;</span> &#125;;</span><br><span class="line"><span class="comment">// 定义一个索引变量 i 用于记录 buff 数组当前存储字符的位置，初始化为 0</span></span><br><span class="line"><span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环处理连续的空格和换行符</span></span><br><span class="line"><span class="keyword">while</span> (ch == <span class="string">&#x27; &#x27;</span> || ch == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 将当前读取到的空格或换行符存入 buff 数组，并将索引 i 加 1</span></span><br><span class="line">buff[i++] = ch;</span><br><span class="line"><span class="comment">// 检查 buff 数组是否快满（只剩下一个位置用于存储字符串结束符 &#x27;\0&#x27;）</span></span><br><span class="line"><span class="keyword">if</span> (i == <span class="number">127</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 在 buff 数组末尾添加字符串结束符 &#x27;\0&#x27;</span></span><br><span class="line">buff[i] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"><span class="comment">// 将 buff 数组中的内容添加到字符串 s 中</span></span><br><span class="line">s += buff;</span><br><span class="line"><span class="comment">// 重置索引 i 为 0，以便重新使用 buff 数组</span></span><br><span class="line">i = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 从输入流 in 中读取下一个字符并赋值给 ch</span></span><br><span class="line">ch = in.<span class="built_in">get</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果 buff 数组中还有剩余字符（即 i 不为 0）</span></span><br><span class="line"><span class="keyword">if</span> (i != <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 在 buff 数组末尾添加字符串结束符 &#x27;\0&#x27;</span></span><br><span class="line">buff[i] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"><span class="comment">// 将 buff 数组中的剩余内容添加到字符串 s 中</span></span><br><span class="line">s += buff;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回输入流 in，以便支持链式输入操作</span></span><br><span class="line"><span class="keyword">return</span> in;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>🔥<strong>值得注意的是：</strong> </p><ol><li>当放在自定义的命名空间以外时，需要在参数 <code>string</code> 前加作用域限定，不然默认访问了库里自带的 <code>string</code></li><li>由于不断的 <code>+=</code> 来输入字符要不断的更新空间，效率不高，所以采用开辟数组的方式</li></ol><hr><h1 id="希望读者们多多三连支持"><a href="#希望读者们多多三连支持" class="headerlink" title="希望读者们多多三连支持"></a>希望读者们多多三连支持</h1><h1 id="小编会继续更新"><a href="#小编会继续更新" class="headerlink" title="小编会继续更新"></a>小编会继续更新</h1><h1 id="你们的鼓励就是我前进的动力！"><a href="#你们的鼓励就是我前进的动力！" class="headerlink" title="你们的鼓励就是我前进的动力！"></a>你们的鼓励就是我前进的动力！</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/dc35a4ecf0eb449b84cce95d11e486fc.gif" alt="请添加图片描述"></p>]]></content>
       
       
+      <categories>
+          
+          <category> CPP初阶 </category>
+          
+      </categories>
+      
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> stl </tag>
             
@@ -69,16 +75,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> stl </tag>
             
@@ -100,16 +106,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 模板 </tag>
             
@@ -158,16 +164,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 内存管理 </tag>
             
@@ -187,16 +193,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -632,16 +638,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -723,16 +729,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -752,16 +758,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -812,16 +818,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -841,16 +847,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
         </tags>
       
@@ -868,16 +874,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
         </tags>
       
@@ -895,16 +901,16 @@
       
       <categories>
           
-          <category> C++初阶 </category>
+          <category> CPP初阶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
         </tags>
       
@@ -929,9 +935,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -958,9 +964,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -987,9 +993,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1016,9 +1022,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1045,9 +1051,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1074,9 +1080,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1103,9 +1109,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1132,9 +1138,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1161,9 +1167,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1190,9 +1196,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1219,9 +1225,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1248,9 +1254,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1277,9 +1283,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1306,9 +1312,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1335,9 +1341,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1364,9 +1370,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1393,9 +1399,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1422,9 +1428,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1451,9 +1457,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1480,9 +1486,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1509,9 +1515,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1538,9 +1544,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
