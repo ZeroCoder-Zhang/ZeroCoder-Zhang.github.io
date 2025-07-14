@@ -33,6 +33,33 @@
     
     
     <entry>
+      <title>【前端基础】摩天之建的艺术：html（下）</title>
+      <link href="/2025/06/17/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/html%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+      <url>/2025/06/17/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/html%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>接上一篇，继续学习剩下的 <code>html</code> 知识点</p><h1 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h1><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;20&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>男<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>20<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>男<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>19<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>王五<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>23<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li><code>table</code> 标签：表示整个表格</li><li><code>tr</code>：表示表格的一行</li><li><code>td</code>：表示一个单元格</li><li><code>th</code>：表示表头单元格. 会居中加粗</li><li><code>thead</code>：表格的头部区域(注意和 <code>th</code> 区分，范围是比 <code>th</code> 要大的)</li><li><code>tbody</code>：表格得到主体区域</li></ul><p><code>table</code> 包含 <code>tr</code>，<code>tr</code> 包含 <code>td</code> 或者 <code>th</code></p><p>表格标签有一些属性，可以用于设置大小边框等，但是一般使用 <code>css</code> 方式来设置<br>这些属性都要放到 <code>table</code> 标签中</p><ul><li><code>align</code> 是表格相对于周围元素的对齐方式，<code>align=&quot;center&quot;</code> (不是内部元素的对齐方式)</li><li><code>border</code> 表示边框，<code>1</code> 表示有边框(数字越大，边框越粗)，<code>&quot; &quot;</code> 表示没边框</li><li><code>cellpadding</code>：内容距离边框的距离，默认 <code>1</code> 像素</li><li><code>cellspacing</code>：单元格之间的距离，默认为 <code>2</code> 像素</li><li><code>width / height</code>：设置尺寸</li></ul><p>注意，这几个属性，<code>vscode</code> 都提示不出来</p><p>🔥<strong>值得注意的是：</strong> </p><p><code>SHIFT + ALT + ↓</code> 可以快速复制某一行</p><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/ffcf1c3716b04609b1c323b22cca7686.png" alt="在这里插入图片描述"></p><h2 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h2><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;20&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>20<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;td&gt;男&lt;/td&gt; --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>19<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>王五 / 女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;td&gt;女&lt;/td&gt; --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>23<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li><strong>跨行合并：</strong> <code>rowspan=&quot;n&quot;</code></li><li><strong>跨列合并：</strong> <code>colspan=&quot;n&quot;</code></li></ul><p>跨行是向下合并，跨列是向左合并，注意注释掉别的单元格，避免排版错误</p><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/f9beed7906ed49ce81abeb0eb380b0d7.png" alt="在这里插入图片描述"></p><h1 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h1><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">type</span>=<span class="string">&quot;disc&quot;</span>&gt;</span>小猫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">type</span>=<span class="string">&quot;square&quot;</span>&gt;</span>小兔<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">type</span>=<span class="string">&quot;circle&quot;</span>&gt;</span>小狗<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>ul</code> 表示无序列表（<code>unorder_list</code>），<code>li</code> 表示每一行列表</p><p><strong>每行列表前的样式可以自行选择：</strong></p><ul><li><code>disc</code> 表示实心圆（默认）</li><li><code>square</code> 表示实心正方形</li><li><code>circle</code> 表示空心圆</li></ul><p>🔥<strong>值得注意的是：</strong> </p><p>对于所有列表都可以使用比如：<code>ul&gt;li*3</code> 的方式快速生成列表</p><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/806ff5516658458d8848d00a6d040b06.png" alt="在这里插入图片描述"></p><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小猫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小兔<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小狗<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;A&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小猫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小兔<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小狗<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;a&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小猫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小兔<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小狗<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;i&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小猫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小兔<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小狗<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;I&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小猫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小兔<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>小狗<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>ol</code> 表示有序列表（<code>order_list</code>），<code>li</code> 表示每一行列表</p><p><strong>每行列表前的样式可以自行选择：</strong></p><ul><li><code>1</code> 表示数字编号（默认）</li><li><code>A</code> 表示大写英文字母编号</li><li><code>a</code> 表示小写英文字母编号</li><li><code>i</code> 表示小写罗马数字编号</li><li><code>I</code> 表示大写罗马数字编号</li></ul><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/df655c069938466ab383b1ba4871c292.png" alt="在这里插入图片描述"></p><h2 id="自定义列表"><a href="#自定义列表" class="headerlink" title="自定义列表"></a>自定义列表</h2><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dt</span>&gt;</span> 这是标题</span><br><span class="line">            <span class="tag">&lt;<span class="name">dd</span>&gt;</span>内容1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dd</span>&gt;</span>内容2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dd</span>&gt;</span>内容3<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>dl</code> 表示自定义列表，<code>dt</code> 表示列表的标题，<code>dd</code> 表示列表内容</p><p>🔥<strong>值得注意的是：</strong> </p><ul><li>元素之间是并列关系</li><li><code>ul/ol</code> 中只能放 <code>li</code> 不能放其他标签，<code>dl</code> 中只能放 <code>dt</code> 和 <code>dd</code></li><li><code>li</code> 中可以放其他标签</li><li>列表带有自己的样式，可以使用 <code>css</code> 来修改(例如前面的小圆点都会去掉)</li></ul><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/9f0dffbc646548779274cb7d7a845cf1.png" alt="在这里插入图片描述"></p><h1 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h1><p>比如在输入账号密码的框框部分，就是一种表单标签，会与后端进行数据交互</p><p><strong>分成两个部分:</strong></p><ul><li>表单域：包含表单元素的区域，重点是 <code>form</code> 标签</li><li>表单控件：输入框，提交按钮等，重点是 <code>input</code> 标签</li></ul><h2 id="form标签"><a href="#form标签" class="headerlink" title="form标签"></a>form标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;test.html&quot;</span>&gt;</span></span><br><span class="line">   ... [form 的内容]</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><p>描述了要把数据按照什么方式，提交到哪个页面中，一系列实现都是在这个标签域里，<code>action</code> 后面接的是后端服务器的接收地址</p><h2 id="input标签"><a href="#input标签" class="headerlink" title="input标签"></a>input标签</h2><ol><li>文本框</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="2"><li>密码框</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="3"><li>单选框</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">性别: </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>男</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span>&gt;</span>女</span><br></pre></td></tr></table></figure><p>单选框之间必须具备相同的 <code>name</code> 属性，才能实现多选一效果，<code>checked</code> 表示默认选择</p><ol start="4"><li>复选框</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">爱好:</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span>吃饭 </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span>睡觉 </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span>打游戏</span><br></pre></td></tr></table></figure><ol start="5"><li>普通按钮</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;我是个按钮&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;hello&#x27;)&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>onclick=&quot;alert(&#39;hello&#39;)&quot;</code> 属于 <code>js</code> 的范畴，后面会学习的</p><ol start="6"><li>提交按钮</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;test.html&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><p>提交按钮必须放到 <code>form</code> 标签内，点击后就会尝试给服务器发送</p><ol start="7"><li>清空按钮</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;test.html&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;清空&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="8"><li>选择文件</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><p>点击选择文件，会弹出对话框，选择文件</p><h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;male&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;male&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;female&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;female&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>搭配 <code>input</code> 使用，点击文字也能选中对应的单选&#x2F;复选框，能够提升用户体验</p><p><code>for</code> 属性指定当前 <code>label</code> 和哪个相同 <code>id</code> 的 <code>input</code> 标签对应(此时点击才是有用的)</p><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/6a67b99ee80942bdb63b1cab5cd20bc7.png" alt="在这里插入图片描述"></p><h2 id="select标签"><a href="#select标签" class="headerlink" title="select标签"></a>select标签</h2><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>深圳<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>=<span class="string">&quot;selected&quot;</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>select</code> 表示下拉菜单，<code>option</code> 表示选项</p><p><code>option</code> 中定义 <code>selected=&quot;selected&quot;</code> 表示默认选中</p><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/c4930b801dc544728d77be935c63fa01.png" alt="在这里插入图片描述"></p><h2 id="textarea标签"><a href="#textarea标签" class="headerlink" title="textarea标签"></a>textarea标签</h2><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>textarea</code> 标签表示一个文本域</p><ul><li><code>rows=&quot;10&quot;</code>：设置文本区域的可见行数为 <code>10</code> 行</li><li><code>cols=&quot;50&quot;</code>：设置文本区域的可见字符宽度为 <code>50</code> 个字符</li></ul><p>🔥<strong>值得注意的是：</strong></p><p><code>rows</code> 和 <code>cols</code> 一般不会直接使用，都是用 <code>css</code> 来改的</p><p>✏️<strong>展示效果：</strong></p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/78c7681ef4b8415e816be0c9f39c6672.png" alt="在这里插入图片描述"></p><h1 id="无语义标签"><a href="#无语义标签" class="headerlink" title="无语义标签"></a>无语义标签</h1><p>✏️<strong>举个例子：</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>咬人猫<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>咬人猫<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>咬人猫<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>兔总裁<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>兔总裁<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>兔总裁<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>阿叶君<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>阿叶君<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>阿叶君<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>就是两个盒子，方便用于网页布局</p><ul><li><code>div</code> 是独占一行的，是一个大盒子 </li><li><code>span</code> 不独占一行，是一个小盒子</li></ul><p>✏️<strong>展示效果：</strong><br><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/1d7eb2bb754544e295d5dfb464fc4efe.png" alt="在这里插入图片描述"></p><hr><h1 id="希望读者们多多三连支持"><a href="#希望读者们多多三连支持" class="headerlink" title="希望读者们多多三连支持"></a>希望读者们多多三连支持</h1><h1 id="小编会继续更新"><a href="#小编会继续更新" class="headerlink" title="小编会继续更新"></a>小编会继续更新</h1><h1 id="你们的鼓励就是我前进的动力！"><a href="#你们的鼓励就是我前进的动力！" class="headerlink" title="你们的鼓励就是我前进的动力！"></a>你们的鼓励就是我前进的动力！</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/11ac743eb2764723b2488981f7cf63fc.gif" alt="请添加图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【前端基础】摩天之建的艺术：html（上）</title>
       <link href="/2025/06/17/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/html%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
       <url>/2025/06/17/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/html%EF%BC%88%E4%B8%8A%EF%BC%89/</url>
@@ -78,9 +105,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> IO流 </tag>
+            
+            <tag> stl </tag>
             
         </tags>
       
@@ -459,9 +486,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 二叉搜索树 </tag>
+            
+            <tag> stl </tag>
             
             <tag> map </tag>
             
@@ -548,9 +575,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 多态 </tag>
             
@@ -577,9 +604,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 继承 </tag>
             
@@ -606,9 +633,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 继承 </tag>
             
@@ -635,9 +662,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 模板 </tag>
             
@@ -664,9 +691,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -697,9 +724,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -730,9 +757,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -761,11 +788,11 @@
       
         <tags>
             
-            <tag> chatgpt </tag>
-            
             <tag> 人工智能 </tag>
             
             <tag> 搜索引擎 </tag>
+            
+            <tag> chatgpt </tag>
             
         </tags>
       
@@ -999,9 +1026,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 后端 </tag>
             
@@ -1030,9 +1057,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -1061,9 +1088,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -1092,9 +1119,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -1154,9 +1181,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -1185,9 +1212,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -1216,9 +1243,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 模板 </tag>
             
@@ -1247,11 +1274,11 @@
             
             <tag> 服务器 </tag>
             
-            <tag> 开源软件 </tag>
+            <tag> 人工智能 </tag>
             
             <tag> chatgpt </tag>
             
-            <tag> 人工智能 </tag>
+            <tag> 开源软件 </tag>
             
         </tags>
       
@@ -1276,9 +1303,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 内存管理 </tag>
             
@@ -1305,9 +1332,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1750,9 +1777,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1841,9 +1868,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1870,9 +1897,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1930,9 +1957,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1959,9 +1986,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -1986,9 +2013,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -2013,9 +2040,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -2040,9 +2067,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2069,9 +2096,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2098,9 +2125,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2127,9 +2154,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2156,9 +2183,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2185,9 +2212,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2214,9 +2241,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2243,9 +2270,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2272,9 +2299,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2301,9 +2328,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2330,9 +2357,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2359,9 +2386,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2388,9 +2415,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2417,9 +2444,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2446,9 +2473,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2475,9 +2502,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2504,9 +2531,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2533,9 +2560,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2562,9 +2589,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2591,9 +2618,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2620,9 +2647,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2649,9 +2676,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
