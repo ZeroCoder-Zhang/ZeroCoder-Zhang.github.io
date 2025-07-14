@@ -98,6 +98,12 @@
         <content type="html"><![CDATA[<p>看了前面的底层封装后，其实封装的过程及方法都大差不差，<code>unordered_map</code> &amp;&amp; <code>unordered_set</code> 也是如此，所以本篇就简单提及一些细节，具体最详细的一些部分可以去看前面的文章</p><blockquote><p>传送门：<a href="https://blog.csdn.net/Zero_VPN/article/details/146324257?spm=1011.2415.3001.5331">C++效率掌握之STL库：list底层剖析及迭代器万字详解</a></p></blockquote><blockquote><p>传送门：<a href="https://blog.csdn.net/Zero_VPN/article/details/147807037?spm=1011.2415.3001.5331">C++效率掌握之STL库：map &amp;&amp; set底层剖析及迭代器万字详解</a></p></blockquote><h1 id="unordered-map、unordered-set的基本结构"><a href="#unordered-map、unordered-set的基本结构" class="headerlink" title="unordered_map、unordered_set的基本结构"></a>unordered_map、unordered_set的基本结构</h1><p>🚩<strong>unordered_set：</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">K</span>, <span class="keyword">class</span> <span class="title class_">V</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">unordered_set</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">SetKeyOfT</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="function"><span class="type">const</span> K&amp; <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> K&amp; key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> key;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">typename</span> hash_bucket::HashTable&lt;K, K, SetKeyOfT&gt;::const_iterator iterator;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">typename</span> hash_bucket::HashTable&lt;K, K, SetKeyOfT&gt;::const_iterator const_iterator;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">const_iterator <span class="title">begin</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">begin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">const_iterator <span class="title">end</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">end</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">pair&lt;const_iterator, <span class="type">bool</span>&gt; <span class="title">insert</span><span class="params">(<span class="type">const</span> K&amp; key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">pair&lt;<span class="keyword">typename</span> hash_bucket::HashTable&lt;K, K, SetKeyOfT&gt;::iterator, <span class="type">bool</span>&gt; ret = _ht.<span class="built_in">Insert</span>(key);</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">pair</span>&lt;const_iterator, <span class="type">bool</span>&gt;(ret.first, ret.second);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">hash_bucket::HashTable&lt;K, K, SetKeyOfT&gt; _ht;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>🚩<strong>unordered_map：</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">K</span>, <span class="keyword">class</span> <span class="title class_">V</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">unordered_map</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MapKeyOfT</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="function"><span class="type">const</span> K&amp; <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> pair&lt;<span class="type">const</span> K, V&gt;&amp; kv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> kv.first;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">typename</span> hash_bucket::HashTable&lt;K, pair&lt;<span class="type">const</span> K, V&gt;, MapKeyOfT&gt;::iterator iterator;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">typename</span> hash_bucket::HashTable&lt;K, pair&lt;<span class="type">const</span> K, V&gt;, MapKeyOfT&gt;::const_iterator const_iterator;</span><br><span class="line"></span><br><span class="line"><span class="function">iterator <span class="title">begin</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">begin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">iterator <span class="title">end</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">end</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">const_iterator <span class="title">begin</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">begin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">const_iterator <span class="title">end</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">end</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">pair&lt;iterator, <span class="type">bool</span>&gt; <span class="title">insert</span><span class="params">(<span class="type">const</span> pair&lt;K, V&gt;&amp; kv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">Insert</span>(kv);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">V&amp; <span class="keyword">operator</span>[](<span class="type">const</span> K&amp; key)</span><br><span class="line">&#123;</span><br><span class="line">pair&lt;iterator, <span class="type">bool</span>&gt; ret = _ht.<span class="built_in">Insert</span>(<span class="built_in">make_pair</span>(key, <span class="built_in">V</span>()));</span><br><span class="line"><span class="keyword">return</span> ret.first-&gt;second;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">hash_bucket::HashTable&lt;K, pair&lt;<span class="type">const</span> K, V&gt;, MapKeyOfT&gt; _ht;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p><code>unordered_set</code> 虽然事 <code>k-k</code> 类型，<code>unordered_map</code> 是 <code>k-v</code> 类型，但是实际上这两个类共用一个哈希表，准确来说是共用同一个模板类型，<code>unordered_set</code> 是 <code>&lt;K，K&gt;</code>，<code>unordered_map</code> 是 <code>&lt;K，pair&lt;K，V&gt;&gt;</code></p><h1 id="普通迭代器"><a href="#普通迭代器" class="headerlink" title="普通迭代器"></a>普通迭代器</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">K</span>, <span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Ptr</span>, <span class="keyword">class</span> <span class="title class_">Ref</span>, <span class="keyword">class</span> <span class="title class_">KeyOfT</span>, <span class="keyword">class</span> <span class="title class_">HashFunc</span>&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">HTIterator</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">typedef</span> HashNode&lt;T&gt; Node;</span><br><span class="line"><span class="keyword">typedef</span> HTIterator&lt;K, T, Ptr, Ref, KeyOfT, HashFunc&gt; Self;</span><br><span class="line"><span class="keyword">typedef</span> HTIterator&lt;K, T, T*, T&amp;, KeyOfT, HashFunc&gt; Iterator;</span><br><span class="line"></span><br><span class="line">Node* _node;</span><br><span class="line"><span class="type">const</span> HashTable&lt;K, T, KeyOfT, HashFunc&gt;* _pht;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*HTIterator(Node* node, HashTable&lt;K, T, KeyOfT, HashFunc&gt;* pht)</span></span><br><span class="line"><span class="comment">:_node(node)</span></span><br><span class="line"><span class="comment">,_pht(pht)</span></span><br><span class="line"><span class="comment">&#123;&#125;*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">HTIterator</span>(Node* node, <span class="type">const</span> HashTable&lt;K, T, KeyOfT, HashFunc&gt;* pht)</span><br><span class="line">:_node(node)</span><br><span class="line">, _pht(pht)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通迭代器时，他是拷贝构造</span></span><br><span class="line"><span class="comment">// const迭代器时，他是构造</span></span><br><span class="line"><span class="built_in">HTIterator</span>(<span class="type">const</span> Iterator&amp; it)</span><br><span class="line">:_node(it._node)</span><br><span class="line">, _pht(it._pht)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Ref <span class="keyword">operator</span>*()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> _node-&gt;_data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Ptr <span class="keyword">operator</span>-&gt;()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> &amp;_node-&gt;_data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Self&amp; <span class="keyword">operator</span>++()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (_node-&gt;_next)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 当前桶还没完</span></span><br><span class="line">_node = _node-&gt;_next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">KeyOfT kot;</span><br><span class="line">HashFunc hf;</span><br><span class="line"><span class="type">size_t</span> hashi = <span class="built_in">hf</span>(<span class="built_in">kot</span>(_node-&gt;_data)) % _pht-&gt;_table.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">// 从下一个位置查找查找下一个不为空的桶</span></span><br><span class="line">++hashi;</span><br><span class="line"><span class="keyword">while</span> (hashi &lt; _pht-&gt;_table.<span class="built_in">size</span>())</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (_pht-&gt;_table[hashi])</span><br><span class="line">&#123;</span><br><span class="line">_node = _pht-&gt;_table[hashi];</span><br><span class="line"><span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">++hashi;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_node = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>!=(<span class="type">const</span> Self&amp; s)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> _node != s._node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>==(<span class="type">const</span> Self&amp; s)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> _node == s._node;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p><code>typedef HTIterator&lt;K, T, T*, T&amp;, KeyOfT, HashFunc&gt; Iterator</code> 和构造函数是为 <code>Insert</code> 操作准备的，因为涉及到普通迭代器创建 <code>const</code> 迭代器</p><p>🔥<strong>值得注意的是：</strong> 有人说不是可以通过权限转化吗？但是权限转化是只有涉及引用和指针的类型时才会生效，而这里是模板参数之间的转化</p><h1 id="const迭代器"><a href="#const迭代器" class="headerlink" title="const迭代器"></a>const迭代器</h1><p><code>unordered_set</code> 本身无论是 <code>const</code> 迭代器还是普通迭代器都会被 <code>typedef</code> 为 <code>const_iterator</code></p><p>对于 <code>unordered_map</code> 来说，<code>key</code> 是不允许改变的，<code>value</code> 是可以改变的，但是如果像 <code>set</code> 那样写的话 <code>key</code> 和 <code>value</code> 都不能修改了，所以直接在 <code>pair</code> 的 <code>key</code> 加 <code>const</code> ，控制 <code>value</code> 即可</p><h1 id="insert返回值-operator"><a href="#insert返回值-operator" class="headerlink" title="insert返回值  operator[]"></a>insert返回值  operator[]</h1><p>🚩<strong>unordered_set：</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pair&lt;const_iterator, <span class="type">bool</span>&gt; <span class="title">insert</span><span class="params">(<span class="type">const</span> K&amp; key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//return _ht.Insert(key);</span></span><br><span class="line">pair&lt;<span class="keyword">typename</span> hash_bucket::HashTable&lt;K, K, SetKeyOfT&gt;::iterator, <span class="type">bool</span>&gt; ret = _ht.<span class="built_in">Insert</span>(key);</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">pair</span>&lt;const_iterator, <span class="type">bool</span>&gt;(ret.first, ret.second);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>🚩<strong>unordered_map：</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pair&lt;iterator, <span class="type">bool</span>&gt; <span class="title">insert</span><span class="params">(<span class="type">const</span> pair&lt;K, V&gt;&amp; kv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> _ht.<span class="built_in">Insert</span>(kv);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">V&amp; <span class="keyword">operator</span>[](<span class="type">const</span> K&amp; key)</span><br><span class="line">&#123;</span><br><span class="line">pair&lt;iterator, <span class="type">bool</span>&gt; ret = _ht.<span class="built_in">Insert</span>(<span class="built_in">make_pair</span>(key, <span class="built_in">V</span>()));</span><br><span class="line"><span class="keyword">return</span> ret.first-&gt;second;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里的转化尤为复杂，一定要看之前文章的详细解析</p><h1 id="希望读者们多多三连支持"><a href="#希望读者们多多三连支持" class="headerlink" title="希望读者们多多三连支持"></a>希望读者们多多三连支持</h1><h1 id="小编会继续更新"><a href="#小编会继续更新" class="headerlink" title="小编会继续更新"></a>小编会继续更新</h1><h1 id="你们的鼓励就是我前进的动力！"><a href="#你们的鼓励就是我前进的动力！" class="headerlink" title="你们的鼓励就是我前进的动力！"></a>你们的鼓励就是我前进的动力！</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/01d5976f19634eed8e3383ec1527ebad.gif" alt="请添加图片描述"></p>]]></content>
       
       
+      <categories>
+          
+          <category> C++进阶 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -368,9 +374,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 多态 </tag>
             
@@ -397,9 +403,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 继承 </tag>
             
@@ -426,9 +432,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 继承 </tag>
             
@@ -455,9 +461,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 模板 </tag>
             
@@ -484,9 +490,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -517,9 +523,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -550,9 +556,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -819,9 +825,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 后端 </tag>
             
@@ -850,9 +856,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -881,9 +887,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -912,9 +918,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -974,9 +980,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -1005,9 +1011,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> stl </tag>
             
@@ -1036,9 +1042,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 模板 </tag>
             
@@ -1096,9 +1102,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 内存管理 </tag>
             
@@ -1125,9 +1131,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1570,9 +1576,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1661,9 +1667,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1690,9 +1696,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1750,9 +1756,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1779,9 +1785,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -1806,9 +1812,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -1833,9 +1839,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -1860,9 +1866,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1889,9 +1895,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1918,9 +1924,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1947,9 +1953,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -1976,9 +1982,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2005,9 +2011,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2034,9 +2040,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2063,9 +2069,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2092,9 +2098,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2121,9 +2127,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2150,9 +2156,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2179,9 +2185,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2208,9 +2214,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2237,9 +2243,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2266,9 +2272,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2295,9 +2301,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2324,9 +2330,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2353,9 +2359,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2382,9 +2388,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2411,9 +2417,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2440,9 +2446,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2469,9 +2475,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 科技 </tag>
             
