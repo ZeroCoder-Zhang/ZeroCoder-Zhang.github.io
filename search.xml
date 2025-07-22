@@ -215,9 +215,9 @@
             
             <tag> C++ </tag>
             
-            <tag> IO流 </tag>
-            
             <tag> stl </tag>
+            
+            <tag> IO流 </tag>
             
         </tags>
       
@@ -420,9 +420,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 哈希 </tag>
+            
+            <tag> stl </tag>
             
             <tag> unordered_map </tag>
             
@@ -685,9 +685,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 多态 </tag>
             
@@ -714,9 +714,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 继承 </tag>
             
@@ -743,9 +743,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 继承 </tag>
             
@@ -772,9 +772,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 模板 </tag>
             
@@ -801,11 +801,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> priority_queue </tag>
             
@@ -834,11 +834,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> stack </tag>
             
@@ -867,11 +867,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> list </tag>
             
@@ -1136,9 +1136,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 后端 </tag>
             
@@ -1167,11 +1167,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> list </tag>
             
@@ -1198,11 +1198,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> vector </tag>
             
@@ -1229,11 +1229,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> vector </tag>
             
@@ -1291,11 +1291,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> string </tag>
             
@@ -1322,11 +1322,11 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
             
             <tag> stl </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> string </tag>
             
@@ -1353,9 +1353,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 模板 </tag>
             
@@ -1413,9 +1413,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 内存管理 </tag>
             
@@ -1442,9 +1442,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -1871,6 +1871,35 @@
     
     
     <entry>
+      <title>C++天使的灵动心跳代码：类和对象（下）</title>
+      <link href="/2024/12/15/CPP%E5%88%9D%E9%98%B6/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+      <url>/2024/12/15/CPP%E5%88%9D%E9%98%B6/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="构造函数补充"><a href="#构造函数补充" class="headerlink" title="构造函数补充"></a>构造函数补充</h1><h2 id="构造函数赋值"><a href="#构造函数赋值" class="headerlink" title="构造函数赋值"></a>构造函数赋值</h2><p>一般把成员变量放在私有，通常只是<code>声明</code>或<code>给了缺省值</code>，所以要给他们<code>定义</code></p><h3 id="直接赋值"><a href="#直接赋值" class="headerlink" title="直接赋值"></a>直接赋值</h3><p>直接给个直观的例子，之前也使用过</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="built_in">Date</span>(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span><br><span class="line"> &#123;</span><br><span class="line"> _year = year;</span><br><span class="line"> _month = month;</span><br><span class="line"> _day = day;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> <span class="type">int</span> _year;</span><br><span class="line"> <span class="type">int</span> _month;</span><br><span class="line"> <span class="type">int</span> _day;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>虽然上述构造函数调用之后，对象中<code>已经有了一个初始值</code>，但是<code>不能将其称为对对象中成员变量的初始化</code>，构造函数体中的语句<code>只能将其称为赋初值</code>，而<code>不能称作初始化</code>。因为初始化只能<code>初始化一次</code>，而构造函数体内<code>可以多次赋值</code></p><h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><p><strong>什么是初始化列表？</strong></p><blockquote><p>以<code>一个冒号开始</code>，接着是一个<code>以逗号分隔</code>的数据成员列表，每个”成员变量”后面跟一个放在括号中的<code>初始值或表达式</code></p></blockquote><p><strong>举个例子</strong>：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Date</span>(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span><br><span class="line"> : _year(year)</span><br><span class="line"> , _month(month)</span><br><span class="line"> , _day(day)</span><br><span class="line"> &#123;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> <span class="type">int</span> _year;</span><br><span class="line"> <span class="type">int</span> _month;</span><br><span class="line"> <span class="type">int</span> _day;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>按照代码中<code>初始化列表里的顺序</code>，依次将传入构造函数的参数 <code>year</code> 初始化给 <code>_year</code>，<code>month</code> 初始化给 <code>_month</code>，<code>day</code> 初始化给 <code>_day</code></p><p>🔥<strong>值得注意的是</strong>：</p><ol><li>每个成员变量在初始化列表中<code>只能出现一次</code>(初始化只能初始化一次)</li><li>类中包含以下成员，<code>必须放在初始化列表位置进行初始化</code>：<br> • <strong>引用成员变量</strong><br> • <strong>const 成员变量</strong><br> • <strong>自定义类型成员(且该类没有默认构造函数时)</strong></li></ol><p>🔥<strong>总结</strong>：<code>尽量使用初始化列表初始化</code>，因为不管你是否使用初始化列表，对于自定义类型成员变量，<code>一定会先使用初始化列表初始化</code>；成员变量在类中<code>声明次序</code>就是其在<code>初始化列表中的初始化顺序</code>，<code>与其在初始化列表中的先后次序无关</code></p><h2 id="explicit-关键字"><a href="#explicit-关键字" class="headerlink" title="explicit 关键字"></a>explicit 关键字</h2><p><strong>什么是 <a href="https://legacy.cplusplus.com/">explicit</a> 关键字？</strong></p><blockquote><p>explicit 关键字<code>主要用于修饰类的构造函数</code>，其目的是<code>防止隐式类型转换</code>。当一个构造函数被声明为 explicit 时，编译器就<code>不允许使用该构造函数进行隐式的类型转换了</code>，而<code>只能进行显式的类型转换操作</code></p></blockquote><p>🚩<strong>无 explicit 情况</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">int</span> num) : <span class="built_in">data</span>(num) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getData</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> data; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">MyClass obj = <span class="number">10</span>;  <span class="comment">// 隐式地将整数 10 转换为 MyClass 类型的对象</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>自动调用 <code>MyClass 的以 int 为参数的构造函数</code>，将 <code>10</code> 转换为 <code>MyClass</code> 类型的对象，这种隐式转换有时候<code>可能并非程序员的本意</code>，而且可能会导致一些<code>不易察觉的错误</code>或者<code>代码逻辑不够清晰</code></p><p>🚩<strong>有 explicit 情况</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">MyClass</span><span class="params">(<span class="type">int</span> num)</span> : data(num) &#123;</span>&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getData</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> data; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">MyClass obj = <span class="number">10</span>;  <span class="comment">// 编译错误，不能进行隐式类型转换了</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>此时，如果想要从 <code>int</code> 类型转换为 <code>MyClass</code> 类型，就<code>必须进行显式的转换</code>，比如</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">MyClass <span class="title">obj</span><span class="params">(<span class="number">10</span>)</span></span>;  <span class="comment">// 正确，显式调用构造函数创建对象</span></span><br><span class="line">MyClass obj = <span class="built_in">MyClass</span>(<span class="number">10</span>);  <span class="comment">// 也正确，通过显示构造临时对象再赋值（或者用于初始化）的方式</span></span><br></pre></td></tr></table></figure><p>这里 <code>MyClass(10)</code> 是个<code>匿名对象</code>，即<code>没有名字的对象</code>，匿名对象<code>具有临时性</code>，<code>只能使用一次</code>，使用完就<code>销毁</code></p><h1 id="static-成员"><a href="#static-成员" class="headerlink" title="static 成员"></a>static 成员</h1><blockquote><p>声明为 <code>static 的类成员</code>称为<code>类的静态成员</code>，用 static 修饰的成员变量，称之为<code>静态成员变量</code>；用 static 修饰的<br>成员函数，称之为<code>静态成员函数</code></p></blockquote><p>🔥<strong>值得注意的是</strong>：</p><ol><li>静态成员也是<code>类的成员</code>，受<code>public</code>、<code>protected</code>、<code>private</code> 访问限定符的限制</li><li>静态成员为所有类对象所<code>共享</code>，<code>不属于某个具体的对象</code>，存放在<code>静态区</code></li><li>静态成员变量<code>必须在类外定义</code>，定义时不添加<code>static</code>关键字，类中只是声明</li><li>类静态成员即可用 <code>类名::静态成员</code> 或者 <code>对象.静态成员</code> 来访问</li></ol><h2 id="静态成员变量"><a href="#静态成员变量" class="headerlink" title="静态成员变量"></a>静态成员变量</h2><p><code>静态成员变量</code>是<code>属于类的变量</code>，而<code>不是属于类的某个具体对象</code>。它被该类的所有对象所<code>共享</code>，在内存中<code>只有一份拷贝</code>。这与普通成员变量不同，<code>普通成员变量</code>是<code>每个对象都有自己独立的一份</code></p><p><strong>以记录学生总数为例子</strong>：<br>无论创建多少个 Student 对象，这个变量都只有一个，并且可以被所有 Student 对象访问</p><p>🚩<strong>定义和初始化</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> total_students;</span><br><span class="line">    <span class="comment">// 其他成员函数和变量</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> Student::total_students = <span class="number">0</span>;</span><br></pre></td></tr></table></figure><p>静态成员变量<code>不能在类内部初始化</code>。因为类<code>只是一个模板</code>(后续介绍模版会更容易理解)，当类被加载时，还<code>没有</code>为静态成员变量<code>分配内存空间</code>。必须在<code>类的外部</code>进行初始化，而且要<code>使用类名来限定</code></p><p>🚩<strong>访问方式</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student::total_students++;</span><br></pre></td></tr></table></figure><p>也可以通过<code>类的对象来访问静态成员变量</code>，但是这种方式<code>容易让人误解为是对象的普通成员变量</code></p><h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p><code>静态成员函数</code>基本与<code>静态成员变量</code>差不多</p><p>💻<strong>区别在于</strong>：由于静态成员函数<code>不与特定对象相关联</code>，所以<code>它没有this指针</code>。这意味着在静态成员函数内部<code>不能直接访问非静态成员变量和非静态成员函数</code>，因为没有 this 指针来<code>指明访问的是哪个对象的成员</code></p><h1 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h1><h2 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h2><p><code>友元函数</code>是一种在类中<code>被声明为 “朋友” 的非成员函数</code>。它可以访问类的<code>私有（private）</code>和<code>保护（protected）</code>成员，就好像它是类的成员函数一样。这<code>打破了类的封装性</code>，但在某些特定情况下是非常有用的</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; out, Date&amp; d);</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Date</span>(<span class="type">int</span> year = <span class="number">2024</span>,<span class="type">int</span> month = <span class="number">12</span>,<span class="type">int</span> day = <span class="number">2</span>)</span><br><span class="line">:_year(year)</span><br><span class="line">,_month(month)</span><br><span class="line">,_day(day)</span><br><span class="line">&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">static</span> <span class="type">int</span> ret;</span><br><span class="line"><span class="type">int</span> _year;</span><br><span class="line"><span class="type">int</span> _month;</span><br><span class="line"><span class="type">int</span> _day;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> Date::ret = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; out, Date&amp; d)</span><br><span class="line">&#123;</span><br><span class="line">out &lt;&lt; d._year &lt;&lt; <span class="string">&quot;-&quot;</span> &lt;&lt; d._month &lt;&lt; <span class="string">&quot;-&quot;</span> &lt;&lt; d._day &lt;&lt; endl;</span><br><span class="line"><span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Date d1;</span><br><span class="line">cout &lt;&lt; d<span class="number">1.</span><span class="built_in">Getret</span>() &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; d1;</span><br><span class="line"><span class="type">double</span> a = <span class="number">1.11</span>;</span><br><span class="line"><span class="type">int</span> b = a;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>例如在必须使用<code>operator&lt;&lt;重载</code>时，这种情况下不得不<code>突破封装性去访问类内变量</code>。友元函数可以<code>直接访问类的私有成员</code>，它是<code>定义在类外部的普通函数</code>，<code>不属于任何类</code>，但需要在类的内部声明，声明时需要<code>加 friend 关键字</code></p><p>🔥<strong>值得注意的是</strong>：<br>• 友元函数可访问类的私有和保护成员，但<code>不是类的成员函数</code><br>• 友元函数<code>不能用 const 修饰</code><br>• 友元函数可以<code>在类定义的任何地方声明</code>，<code>不受类访问限定符限制</code><br>• 一个函数可以是<code>多个类的友元函数</code><br>• 友元函数的调用与普通函数的<code>调用原理相同</code></p><h2 id="友元类"><a href="#友元类" class="headerlink" title="友元类"></a>友元类</h2><p>顾名思义，就是把函数换成类的友元，<code>友元类的所有成员函数都可以是另一个类的友元函数，都可以访问另一个类中的非公有成员</code></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Time</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">Date</span>; <span class="comment">// 声明日期类为时间类的友元类，则在日期类中就直接访问Time类中的私有成员变量</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Time</span>(<span class="type">int</span> hour = <span class="number">0</span>, <span class="type">int</span> minute = <span class="number">0</span>, <span class="type">int</span> second = <span class="number">0</span>)</span><br><span class="line">: _hour(hour)</span><br><span class="line">, _minute(minute)</span><br><span class="line">, _second(second)</span><br><span class="line">&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> _hour;</span><br><span class="line"><span class="type">int</span> _minute;</span><br><span class="line"><span class="type">int</span> _second;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Date</span>(<span class="type">int</span> year = <span class="number">1900</span>, <span class="type">int</span> month = <span class="number">1</span>, <span class="type">int</span> day = <span class="number">1</span>)</span><br><span class="line">: _year(year)</span><br><span class="line">, _month(month)</span><br><span class="line">, _day(day)</span><br><span class="line">&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SetTimeOfDate</span><span class="params">(<span class="type">int</span> hour, <span class="type">int</span> minute, <span class="type">int</span> second)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// 直接访问时间类私有的成员变量</span></span><br><span class="line"><span class="type">_t</span>._hour = hour;</span><br><span class="line"><span class="type">_t</span>._minute = minute;</span><br><span class="line"><span class="type">_t</span>._second = second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> _year;</span><br><span class="line"><span class="type">int</span> _month;</span><br><span class="line"><span class="type">int</span> _day;</span><br><span class="line">Time <span class="type">_t</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>🔥<strong>值得注意的是</strong>：<br>• 友元关系是<code>单向的</code>，<code>不具有交换性</code><br>比如上述 Time 类和 Date 类，在 Time 类中声明 Date 类为其友元类，那么可以在 Date 类中直接访问 Time类的私有成员变量，但想在Time类中访问Date类中私有的成员变量则不行<br>• 友元关系<code>不能传递</code><br>如果B是A的友元，C是B的友元，则不能说明C时A的友元<br>• 友元关系<code>不能继承</code>，在继承位置再给大家详细介绍</p><h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><p><strong>如果一个类定义在另一个类的内部，这个内部类就叫做内部类</strong>，内部类是一个<code>独立的类</code>，它<code>不属于外部类</code>，更<code>不能</code>通过外部类的对象去访问内部类的成员。外部类对内部类<code>没有任何优越的访问权限</code></p><p>所以<code>内部类天生就是外部类的友元类</code></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">static</span> <span class="type">int</span> k;</span><br><span class="line"><span class="type">int</span> h;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="comment">// B天生就是A的友元</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">const</span> A&amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">cout &lt;&lt; k &lt;&lt; endl;<span class="comment">//OK</span></span><br><span class="line">cout &lt;&lt; a.h &lt;&lt; endl;<span class="comment">//OK</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> A::k = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">A::B b;</span><br><span class="line">b.<span class="built_in">foo</span>(<span class="built_in">A</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>🔥<strong>值得注意的是</strong>：</p><ol><li>内部类可以定义在外部类的 <code>public</code>、<code>protected</code>、<code>private</code> 都是可以的。</li><li>注意内部类<code>可以直接访问外部类中的 static 成员</code>，不需要外部类的对象&#x2F;类名。</li><li>sizeof(外部类)&#x3D;外部类，<code>和内部类没有任何关系</code></li></ol><h1 id="希望读者们多多三连支持"><a href="#希望读者们多多三连支持" class="headerlink" title="希望读者们多多三连支持"></a>希望读者们多多三连支持</h1><h1 id="小编会继续更新"><a href="#小编会继续更新" class="headerlink" title="小编会继续更新"></a>小编会继续更新</h1><h1 id="你们的鼓励就是我前进的动力！"><a href="#你们的鼓励就是我前进的动力！" class="headerlink" title="你们的鼓励就是我前进的动力！"></a>你们的鼓励就是我前进的动力！</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/3665fc5d07cd49cfb6f3b0aad314bb02.gif" alt="请添加图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++初阶 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
+            
+            <tag> 类和对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【优选算法】Prefix-Kage：前缀和的算法影（上）</title>
       <link href="/2024/12/15/%E4%BC%98%E9%80%89%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E5%92%8C%E7%9A%84%E7%AE%97%E6%B3%95%E5%BD%B1%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
       <url>/2024/12/15/%E4%BC%98%E9%80%89%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E5%92%8C%E7%9A%84%E7%AE%97%E6%B3%95%E5%BD%B1%EF%BC%88%E4%B8%8A%EF%BC%89/</url>
@@ -1894,35 +1923,6 @@
             <tag> 算法 </tag>
             
             <tag> 动态规划 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C++天使的灵动心跳代码：类和对象（下）</title>
-      <link href="/2024/12/15/CPP%E5%88%9D%E9%98%B6/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
-      <url>/2024/12/15/CPP%E5%88%9D%E9%98%B6/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
-      
-        <content type="html"><![CDATA[<h1 id="构造函数补充"><a href="#构造函数补充" class="headerlink" title="构造函数补充"></a>构造函数补充</h1><h2 id="构造函数赋值"><a href="#构造函数赋值" class="headerlink" title="构造函数赋值"></a>构造函数赋值</h2><p>一般把成员变量放在私有，通常只是<code>声明</code>或<code>给了缺省值</code>，所以要给他们<code>定义</code></p><h3 id="直接赋值"><a href="#直接赋值" class="headerlink" title="直接赋值"></a>直接赋值</h3><p>直接给个直观的例子，之前也使用过</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="built_in">Date</span>(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span><br><span class="line"> &#123;</span><br><span class="line"> _year = year;</span><br><span class="line"> _month = month;</span><br><span class="line"> _day = day;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> <span class="type">int</span> _year;</span><br><span class="line"> <span class="type">int</span> _month;</span><br><span class="line"> <span class="type">int</span> _day;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>虽然上述构造函数调用之后，对象中<code>已经有了一个初始值</code>，但是<code>不能将其称为对对象中成员变量的初始化</code>，构造函数体中的语句<code>只能将其称为赋初值</code>，而<code>不能称作初始化</code>。因为初始化只能<code>初始化一次</code>，而构造函数体内<code>可以多次赋值</code></p><h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><p><strong>什么是初始化列表？</strong></p><blockquote><p>以<code>一个冒号开始</code>，接着是一个<code>以逗号分隔</code>的数据成员列表，每个”成员变量”后面跟一个放在括号中的<code>初始值或表达式</code></p></blockquote><p><strong>举个例子</strong>：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Date</span>(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span><br><span class="line"> : _year(year)</span><br><span class="line"> , _month(month)</span><br><span class="line"> , _day(day)</span><br><span class="line"> &#123;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> <span class="type">int</span> _year;</span><br><span class="line"> <span class="type">int</span> _month;</span><br><span class="line"> <span class="type">int</span> _day;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>按照代码中<code>初始化列表里的顺序</code>，依次将传入构造函数的参数 <code>year</code> 初始化给 <code>_year</code>，<code>month</code> 初始化给 <code>_month</code>，<code>day</code> 初始化给 <code>_day</code></p><p>🔥<strong>值得注意的是</strong>：</p><ol><li>每个成员变量在初始化列表中<code>只能出现一次</code>(初始化只能初始化一次)</li><li>类中包含以下成员，<code>必须放在初始化列表位置进行初始化</code>：<br> • <strong>引用成员变量</strong><br> • <strong>const 成员变量</strong><br> • <strong>自定义类型成员(且该类没有默认构造函数时)</strong></li></ol><p>🔥<strong>总结</strong>：<code>尽量使用初始化列表初始化</code>，因为不管你是否使用初始化列表，对于自定义类型成员变量，<code>一定会先使用初始化列表初始化</code>；成员变量在类中<code>声明次序</code>就是其在<code>初始化列表中的初始化顺序</code>，<code>与其在初始化列表中的先后次序无关</code></p><h2 id="explicit-关键字"><a href="#explicit-关键字" class="headerlink" title="explicit 关键字"></a>explicit 关键字</h2><p><strong>什么是 <a href="https://legacy.cplusplus.com/">explicit</a> 关键字？</strong></p><blockquote><p>explicit 关键字<code>主要用于修饰类的构造函数</code>，其目的是<code>防止隐式类型转换</code>。当一个构造函数被声明为 explicit 时，编译器就<code>不允许使用该构造函数进行隐式的类型转换了</code>，而<code>只能进行显式的类型转换操作</code></p></blockquote><p>🚩<strong>无 explicit 情况</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">int</span> num) : <span class="built_in">data</span>(num) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getData</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> data; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">MyClass obj = <span class="number">10</span>;  <span class="comment">// 隐式地将整数 10 转换为 MyClass 类型的对象</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>自动调用 <code>MyClass 的以 int 为参数的构造函数</code>，将 <code>10</code> 转换为 <code>MyClass</code> 类型的对象，这种隐式转换有时候<code>可能并非程序员的本意</code>，而且可能会导致一些<code>不易察觉的错误</code>或者<code>代码逻辑不够清晰</code></p><p>🚩<strong>有 explicit 情况</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">MyClass</span><span class="params">(<span class="type">int</span> num)</span> : data(num) &#123;</span>&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getData</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> data; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">MyClass obj = <span class="number">10</span>;  <span class="comment">// 编译错误，不能进行隐式类型转换了</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>此时，如果想要从 <code>int</code> 类型转换为 <code>MyClass</code> 类型，就<code>必须进行显式的转换</code>，比如</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">MyClass <span class="title">obj</span><span class="params">(<span class="number">10</span>)</span></span>;  <span class="comment">// 正确，显式调用构造函数创建对象</span></span><br><span class="line">MyClass obj = <span class="built_in">MyClass</span>(<span class="number">10</span>);  <span class="comment">// 也正确，通过显示构造临时对象再赋值（或者用于初始化）的方式</span></span><br></pre></td></tr></table></figure><p>这里 <code>MyClass(10)</code> 是个<code>匿名对象</code>，即<code>没有名字的对象</code>，匿名对象<code>具有临时性</code>，<code>只能使用一次</code>，使用完就<code>销毁</code></p><h1 id="static-成员"><a href="#static-成员" class="headerlink" title="static 成员"></a>static 成员</h1><blockquote><p>声明为 <code>static 的类成员</code>称为<code>类的静态成员</code>，用 static 修饰的成员变量，称之为<code>静态成员变量</code>；用 static 修饰的<br>成员函数，称之为<code>静态成员函数</code></p></blockquote><p>🔥<strong>值得注意的是</strong>：</p><ol><li>静态成员也是<code>类的成员</code>，受<code>public</code>、<code>protected</code>、<code>private</code> 访问限定符的限制</li><li>静态成员为所有类对象所<code>共享</code>，<code>不属于某个具体的对象</code>，存放在<code>静态区</code></li><li>静态成员变量<code>必须在类外定义</code>，定义时不添加<code>static</code>关键字，类中只是声明</li><li>类静态成员即可用 <code>类名::静态成员</code> 或者 <code>对象.静态成员</code> 来访问</li></ol><h2 id="静态成员变量"><a href="#静态成员变量" class="headerlink" title="静态成员变量"></a>静态成员变量</h2><p><code>静态成员变量</code>是<code>属于类的变量</code>，而<code>不是属于类的某个具体对象</code>。它被该类的所有对象所<code>共享</code>，在内存中<code>只有一份拷贝</code>。这与普通成员变量不同，<code>普通成员变量</code>是<code>每个对象都有自己独立的一份</code></p><p><strong>以记录学生总数为例子</strong>：<br>无论创建多少个 Student 对象，这个变量都只有一个，并且可以被所有 Student 对象访问</p><p>🚩<strong>定义和初始化</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> total_students;</span><br><span class="line">    <span class="comment">// 其他成员函数和变量</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> Student::total_students = <span class="number">0</span>;</span><br></pre></td></tr></table></figure><p>静态成员变量<code>不能在类内部初始化</code>。因为类<code>只是一个模板</code>(后续介绍模版会更容易理解)，当类被加载时，还<code>没有</code>为静态成员变量<code>分配内存空间</code>。必须在<code>类的外部</code>进行初始化，而且要<code>使用类名来限定</code></p><p>🚩<strong>访问方式</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student::total_students++;</span><br></pre></td></tr></table></figure><p>也可以通过<code>类的对象来访问静态成员变量</code>，但是这种方式<code>容易让人误解为是对象的普通成员变量</code></p><h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p><code>静态成员函数</code>基本与<code>静态成员变量</code>差不多</p><p>💻<strong>区别在于</strong>：由于静态成员函数<code>不与特定对象相关联</code>，所以<code>它没有this指针</code>。这意味着在静态成员函数内部<code>不能直接访问非静态成员变量和非静态成员函数</code>，因为没有 this 指针来<code>指明访问的是哪个对象的成员</code></p><h1 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h1><h2 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h2><p><code>友元函数</code>是一种在类中<code>被声明为 “朋友” 的非成员函数</code>。它可以访问类的<code>私有（private）</code>和<code>保护（protected）</code>成员，就好像它是类的成员函数一样。这<code>打破了类的封装性</code>，但在某些特定情况下是非常有用的</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; out, Date&amp; d);</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Date</span>(<span class="type">int</span> year = <span class="number">2024</span>,<span class="type">int</span> month = <span class="number">12</span>,<span class="type">int</span> day = <span class="number">2</span>)</span><br><span class="line">:_year(year)</span><br><span class="line">,_month(month)</span><br><span class="line">,_day(day)</span><br><span class="line">&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">static</span> <span class="type">int</span> ret;</span><br><span class="line"><span class="type">int</span> _year;</span><br><span class="line"><span class="type">int</span> _month;</span><br><span class="line"><span class="type">int</span> _day;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> Date::ret = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; out, Date&amp; d)</span><br><span class="line">&#123;</span><br><span class="line">out &lt;&lt; d._year &lt;&lt; <span class="string">&quot;-&quot;</span> &lt;&lt; d._month &lt;&lt; <span class="string">&quot;-&quot;</span> &lt;&lt; d._day &lt;&lt; endl;</span><br><span class="line"><span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Date d1;</span><br><span class="line">cout &lt;&lt; d<span class="number">1.</span><span class="built_in">Getret</span>() &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; d1;</span><br><span class="line"><span class="type">double</span> a = <span class="number">1.11</span>;</span><br><span class="line"><span class="type">int</span> b = a;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>例如在必须使用<code>operator&lt;&lt;重载</code>时，这种情况下不得不<code>突破封装性去访问类内变量</code>。友元函数可以<code>直接访问类的私有成员</code>，它是<code>定义在类外部的普通函数</code>，<code>不属于任何类</code>，但需要在类的内部声明，声明时需要<code>加 friend 关键字</code></p><p>🔥<strong>值得注意的是</strong>：<br>• 友元函数可访问类的私有和保护成员，但<code>不是类的成员函数</code><br>• 友元函数<code>不能用 const 修饰</code><br>• 友元函数可以<code>在类定义的任何地方声明</code>，<code>不受类访问限定符限制</code><br>• 一个函数可以是<code>多个类的友元函数</code><br>• 友元函数的调用与普通函数的<code>调用原理相同</code></p><h2 id="友元类"><a href="#友元类" class="headerlink" title="友元类"></a>友元类</h2><p>顾名思义，就是把函数换成类的友元，<code>友元类的所有成员函数都可以是另一个类的友元函数，都可以访问另一个类中的非公有成员</code></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Time</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">Date</span>; <span class="comment">// 声明日期类为时间类的友元类，则在日期类中就直接访问Time类中的私有成员变量</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Time</span>(<span class="type">int</span> hour = <span class="number">0</span>, <span class="type">int</span> minute = <span class="number">0</span>, <span class="type">int</span> second = <span class="number">0</span>)</span><br><span class="line">: _hour(hour)</span><br><span class="line">, _minute(minute)</span><br><span class="line">, _second(second)</span><br><span class="line">&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> _hour;</span><br><span class="line"><span class="type">int</span> _minute;</span><br><span class="line"><span class="type">int</span> _second;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Date</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Date</span>(<span class="type">int</span> year = <span class="number">1900</span>, <span class="type">int</span> month = <span class="number">1</span>, <span class="type">int</span> day = <span class="number">1</span>)</span><br><span class="line">: _year(year)</span><br><span class="line">, _month(month)</span><br><span class="line">, _day(day)</span><br><span class="line">&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SetTimeOfDate</span><span class="params">(<span class="type">int</span> hour, <span class="type">int</span> minute, <span class="type">int</span> second)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// 直接访问时间类私有的成员变量</span></span><br><span class="line"><span class="type">_t</span>._hour = hour;</span><br><span class="line"><span class="type">_t</span>._minute = minute;</span><br><span class="line"><span class="type">_t</span>._second = second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> _year;</span><br><span class="line"><span class="type">int</span> _month;</span><br><span class="line"><span class="type">int</span> _day;</span><br><span class="line">Time <span class="type">_t</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>🔥<strong>值得注意的是</strong>：<br>• 友元关系是<code>单向的</code>，<code>不具有交换性</code><br>比如上述 Time 类和 Date 类，在 Time 类中声明 Date 类为其友元类，那么可以在 Date 类中直接访问 Time类的私有成员变量，但想在Time类中访问Date类中私有的成员变量则不行<br>• 友元关系<code>不能传递</code><br>如果B是A的友元，C是B的友元，则不能说明C时A的友元<br>• 友元关系<code>不能继承</code>，在继承位置再给大家详细介绍</p><h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><p><strong>如果一个类定义在另一个类的内部，这个内部类就叫做内部类</strong>，内部类是一个<code>独立的类</code>，它<code>不属于外部类</code>，更<code>不能</code>通过外部类的对象去访问内部类的成员。外部类对内部类<code>没有任何优越的访问权限</code></p><p>所以<code>内部类天生就是外部类的友元类</code></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">static</span> <span class="type">int</span> k;</span><br><span class="line"><span class="type">int</span> h;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="comment">// B天生就是A的友元</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">const</span> A&amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">cout &lt;&lt; k &lt;&lt; endl;<span class="comment">//OK</span></span><br><span class="line">cout &lt;&lt; a.h &lt;&lt; endl;<span class="comment">//OK</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> A::k = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">A::B b;</span><br><span class="line">b.<span class="built_in">foo</span>(<span class="built_in">A</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>🔥<strong>值得注意的是</strong>：</p><ol><li>内部类可以定义在外部类的 <code>public</code>、<code>protected</code>、<code>private</code> 都是可以的。</li><li>注意内部类<code>可以直接访问外部类中的 static 成员</code>，不需要外部类的对象&#x2F;类名。</li><li>sizeof(外部类)&#x3D;外部类，<code>和内部类没有任何关系</code></li></ol><h1 id="希望读者们多多三连支持"><a href="#希望读者们多多三连支持" class="headerlink" title="希望读者们多多三连支持"></a>希望读者们多多三连支持</h1><h1 id="小编会继续更新"><a href="#小编会继续更新" class="headerlink" title="小编会继续更新"></a>小编会继续更新</h1><h1 id="你们的鼓励就是我前进的动力！"><a href="#你们的鼓励就是我前进的动力！" class="headerlink" title="你们的鼓励就是我前进的动力！"></a>你们的鼓励就是我前进的动力！</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/3665fc5d07cd49cfb6f3b0aad314bb02.gif" alt="请添加图片描述"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> C++初阶 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 开发语言 </tag>
-            
-            <tag> C++ </tag>
-            
-            <tag> 类和对象 </tag>
             
         </tags>
       
@@ -1978,9 +1978,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -2007,9 +2007,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -2067,9 +2067,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
             <tag> 类和对象 </tag>
             
@@ -2096,9 +2096,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
         </tags>
       
@@ -2123,9 +2123,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
         </tags>
       
@@ -2150,9 +2150,9 @@
       
         <tags>
             
-            <tag> 开发语言 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 开发语言 </tag>
             
         </tags>
       
@@ -2177,9 +2177,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2206,9 +2206,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2235,9 +2235,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2264,9 +2264,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2293,9 +2293,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2322,9 +2322,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2351,9 +2351,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2380,9 +2380,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2409,9 +2409,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2438,9 +2438,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2467,9 +2467,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2496,9 +2496,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2525,9 +2525,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2554,9 +2554,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2583,9 +2583,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2612,9 +2612,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2641,9 +2641,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2670,9 +2670,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2699,9 +2699,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2728,9 +2728,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2757,9 +2757,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
@@ -2786,9 +2786,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 科技 </tag>
             
