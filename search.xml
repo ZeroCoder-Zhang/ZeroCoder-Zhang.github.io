@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>【Linux操作系统】简学深悟启示录：Linux环境基础开发工具使用</title>
+      <link href="/2025/07/28/Linux/Linux%E7%8E%AF%E5%A2%83%E5%9F%BA%E7%A1%80%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+      <url>/2025/07/28/Linux/Linux%E7%8E%AF%E5%A2%83%E5%9F%BA%E7%A1%80%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>本文将介绍关于Linux系统常用的工具包，便于后续的代码操作</p><h1 id="软件包管理器yum"><a href="#软件包管理器yum" class="headerlink" title="软件包管理器yum"></a>软件包管理器yum</h1><p>对于 <code>Linux</code> 系统来说，下载软件是必不可少的，就像平常使用手机下载软件一样满足我们的日常需求，一般 <code>Linux</code> 有三种下载方式：</p><ul><li><strong>源代码下载：</strong> 从官网下载代码自行配置，虽说可以充分利用代码自行调配，但是上手使用难度太高</li><li><strong>rpm下载：</strong> 使用命令获取文件安装，但是会涉及该安装包依赖于其他安装包等问题，需要手动解决，过程繁琐</li><li><strong>yum下载：</strong> 也是使用命令获取文件安装，能够自动分析软件包的依赖关系，并从 <code>yum</code> 源中下载并安装所需的依赖包，大大简化了软件安装过程，虽说安装的版本可能不是最新的，但是简单易上手，通常来说是够用的</li></ul><p>因此我们主要使用 <code>yum</code></p><p>🤔<strong>那么yum是如何下载的呢？</strong></p><p>其实也没那么复杂，就拿手机来举例，跟 <code>Linux</code> 系统一样都叫做客户端，<code>yum</code> 就相当于是手机里的应用市场，是一个软件的仓库地址，告诉 <code>yum</code> 去哪里找软件，然后通过网络在服务器里找到对应的软件源来下载软件包，软件源又分为官方和第三方的</p><hr><p>通常我们通过 <code>yum list</code> 查看可安装软件列表，或者 <code>yum search 软件名</code> 进行软件搜索</p><p><strong>以rz、sz命令的下载为例</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zzh_test@hcss-ecs-6aa4 ~]$ yum list | grep rzsz</span><br><span class="line">lrzsz.x86_64                             0.12.20-36.el7                @base    </span><br></pre></td></tr></table></figure><p>我们查询到该命令的安装包为 <code>lrzsz</code></p><blockquote><p><code>yum install -y 软件包名</code></p></blockquote><p>下载的命令通常如上所示，<code>-y</code> 表示省略输入是否同意安装的步骤</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/804b8129822847bf9bf417c592e9dd43.png" alt="在这里插入图片描述"></p><p>对于该红框的信息可以解释为：</p><p><strong>软件包名称:</strong> 主版本号，次版本号，源程序发行号-软件包的发行号，主机平台，cpu架构 </p><p><code>x86_64</code> 后缀表示 <code>64</code> 位系统的安装包，<code>i686</code> 后缀表示 <code>32</code> 位系统安装包，选择包时要和系统匹配，<code>el7</code> 表示操作系统发行版的版本，<code>el7</code> 表示的是 <code>centos7/redhat7</code>，<code>el6</code> 表示  <code>centos6/redhat6</code>，最后一列，<code>base</code> 表示的是 “软件源” 的名称，类似于 “小米应用商店”，”华为应用商店” 这样的概念</p><p>顺便一提，<code>rz</code> 命令用于从 <code>Windows</code> 上传文件到 <code>Linux</code>，<code>sz</code> 命令用于从 <code>Linux</code> 下载文件到 <code>Windows</code>，输入命令后会弹出文件选择对话框，选择要上传的文件即可，在本地直接拖动文件到窗口也是一样的</p><blockquote><p><code>yum remove 软件包名</code></p></blockquote><p>想要删除可以输入以上命令</p><p>🔥<strong>值得注意的是：</strong></p><ul><li>安装软件时由于需要向系统目录中写入内容，一般需要 <code>sudo</code> 或者切到 <code>root</code> 账户下才能完成</li><li><code>yum</code> 安装软件只能一个装完了再装另一个，正在 <code>yum</code> 安装一个软件的过程中, 如果再尝试用 <code>yum</code> 安装另外一个软件，<code>yum</code> 会报错</li></ul><h1 id="Linux编辑器vim"><a href="#Linux编辑器vim" class="headerlink" title="Linux编辑器vim"></a>Linux编辑器vim</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/f6cf1f73b9ab4a85ac6c01925b49934f.png" alt="在这里插入图片描述"></p><p><code>vim 文件名</code> 进入编辑界面，可以理解为记事本，初始状态下是命令模式</p><h2 id="三模式切换"><a href="#三模式切换" class="headerlink" title="三模式切换"></a>三模式切换</h2><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/6674a3b6d70e41e8855ea4daa0cb296e.png" alt="在这里插入图片描述"><br>通常最常用的三个模式：</p><ul><li><strong>命令模式：</strong> <code>i</code> 切换到插入模式，<code>:(shift + ;)</code> 切换到底行模式</li><li><strong>插入模式：</strong> <code>esc</code> 回到命令模式</li><li><strong>底行模式：</strong> <code>esc</code> 回到命令模式</li></ul><p>命令模式就是使用命令控制屏幕光标的移动，字符、字或行的删除，一般不做文本输入；插入模式就是允许编辑的模式，是我们后面用的最频繁的编辑模式；底行模式用于文件保存或退出，也可以进行文件替换，找字符串，列出行号等操作</p><h2 id="正常模式"><a href="#正常模式" class="headerlink" title="正常模式"></a>正常模式</h2><p>正常模式就是命令模式，通常使用命令进行一些简单的操作</p><p><strong>移动：</strong></p><ul><li><code>gg</code>：定位光标到开头行第一位</li><li><code>G(shift + g)</code>：定位到结尾行第一位</li><li><code>n + shift + g</code> ：定位到第 <code>n</code> 行文本第一位</li><li><code>$(shift + 4)</code>：定位到当前行的文本最后一位</li><li><code>^(shift + 6)</code>：定位到当前行的文本第一位</li><li><code>w、b</code>：光标按照单词进行行内、跨行移动</li><li><code>h、j、k、l</code>：左下上右移动光标</li></ul><p><strong>复制粘贴：</strong></p><ul><li><code>(n)yy</code>：复制光标所在(<code>n</code>)行</li><li><code>(n)dd</code>：删除(<code>n</code>)行</li><li><code>(n)p</code>：粘贴 <code>n</code> </li><li><code>u</code>：撤回</li><li><code>ctrl + r</code>：撤回之前的撤回</li></ul><p><strong>转换：</strong></p><ul><li><code>~</code>：大小写转换</li><li><code>(n)r</code>：对光标字符之后的所有字符进行批量化替换</li><li><code>R(shirf + r)</code>：进入替换模式，对内容整体替换</li><li><code>(n)x</code>：对光标字符之后的字符进行删除</li></ul><h2 id="底行模式"><a href="#底行模式" class="headerlink" title="底行模式"></a>底行模式</h2><p>在使用底行模式之前，请记住先按 <code>esc</code> 键确定您已经处于正常模式，再按 <code>:</code> 冒号即可进入底行模式</p><p><strong>跳到文件中的某一行：</strong></p><ul><li><code>#</code>：<code>#</code> 号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字 <code>15</code>，再回车，就会跳到文章的第15行</li></ul><p><strong>查找字符：</strong></p><ul><li><p><code>/ + 关键字</code>：先按 <code>/</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往后寻找到您要的关键字为止，从当前光标位置向下（往后） 查找</p></li><li><p><code>? + 关键字</code>：先按 <code>?</code> 键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按 <code>n</code> 会往前寻找到您要的关键字为止，从当前光标位置向上（往前） 查找</p></li></ul><p> <strong>保存文件：</strong></p><ul><li><code>w</code>：在冒号输入字母 <code>w</code> 就可以将文件保存起来离开 <code>vim</code></li><li><code>q</code>：按 <code>q</code> 就是退出，如果无法离开 <code>vim</code>，可以在 <code>q</code> 后跟一个 <code>!</code> 强制离开 <code>vim</code></li><li><code>wq</code>：一般建议离开时，搭配 <code>w</code> 一起使用，这样在退出的时候还可以保存文件</li></ul><h2 id="可视化模式"><a href="#可视化模式" class="headerlink" title="可视化模式"></a>可视化模式</h2><p><strong>可视化模式一般用于批量操作，比如批量加注释：</strong></p><p><strong>批量注释：</strong></p><p>在正常模式下按 <code>ctrl + v</code> ，进入 <code>V-BLOCK</code> 模式，按 <code>J</code> 键 或 <code>K</code> 键选择要注释的内容，<code>J</code> 向上 <code>K</code> 向下，按住 <code>shift + i</code> 进入插入模式，输入 <code>//</code>，点击 <code>esc</code> 键，完成注释</p><p><strong>批量取消注释：</strong></p><p>在正常模式下按 <code>ctrl + v</code> ，进入 <code>V-BLOCK</code> 模式，然后按两下 <code>L</code> 键(右移两格)，选中注释的符号，按 <code>J</code> 键或 <code>K</code> 键选择要取消注释的内容，按 <code>d</code> 键完成批量取消注释</p><h2 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h2><p><code>vim</code> 可以通过在自己用户下添加 <code>.vimrc</code> 的文件进行功能、风格等配置，为了能够像在VS<br>、IDEA中那样使用方便，可以自行上网进行配置搜索，这里我推荐一个配置项目</p><blockquote><p>传送门：<a href="https://gitee.com/HGtz2222/VimForCpp">VimForCpp</a></p></blockquote><h1 id="Linux编译器gcc-g"><a href="#Linux编译器gcc-g" class="headerlink" title="Linux编译器gcc&#x2F;g++"></a>Linux编译器gcc&#x2F;g++</h1><blockquote><p>gcc&#x2F;g++ [选项] 要编译的文件 [选项] [目标文件]</p></blockquote><p><code>gcc/g++</code> 是一款语言编译器，相当于 <code>Linux</code> 系统的 <code>VS</code>，<code>gcc</code> 专门编译 <code>C</code> 语言，<code>g++</code> 既可以编译 <code>C</code> 语言，也可以编译 <code>C++</code></p><p>生成可执行文件直接 <code>./目标文件</code> 执行即可</p><h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar.c  processBar.h</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ gcc -E processBar.c -o processBar.i</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar.c  processBar.h  processBar.i</span><br></pre></td></tr></table></figure><p>预处理功能主要包括宏定义，文件包含，条件编译，去注释等</p><p><code>-E</code> 表示让 <code>gcc</code> 在预处理结束后停止编译过程，<code>-o</code> 后面一定是接目标文件，源头文件放哪儿无所谓</p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar.c  processBar.h  processBar.i</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ gcc -S processBar.i -o processBar.s</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar  processBar.c  processBar.h  processBar.i  processBar.s</span><br></pre></td></tr></table></figure><p>编译主要检查代码的规范性、是否有语法错误等，以确定代码的实际要做的工作，在检查无误后， <code>gcc</code> 把代码翻译成汇编语言</p><p><code>-S</code> 表示让 <code>gcc</code> 在编译结束后停止编译过程，生成汇编代码</p><h2 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar  processBar.c  processBar.h  processBar.i  processBar.s</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ gcc -c processBar.s -o processBar.o</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar.c  processBar.h  processBar.i  processBar.o  processBar.s</span><br></pre></td></tr></table></figure><p>汇编主要生成机器可识别代码</p><p><code>-c</code> 表示让 <code>gcc</code> 在汇编结束后停止编译过程，生成二进制代码</p><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar.c  processBar.h  processBar.i  processBar.o  processBar.s</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ gcc processBar.o -o processBar</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar  processBar.c  processBar.h  processBar.i  processBar.o  processBar.s</span><br></pre></td></tr></table></figure><p>连接表示连接函数库生成可执行文件</p><h2 id="函数库"><a href="#函数库" class="headerlink" title="函数库"></a>函数库</h2><p>函数库分为两种类型的库：</p><p><strong>静态库：</strong></p><p>静态库就是将需要展开的函数在函数定义的地方直接展开，把库文件的代码全部加入到可执行文件中，因此生成的文件比较大，但在运行时也就不再需要库文件了，其后缀名一般为 <code>.a</code></p><p><strong>动态库：</strong></p><p>动态库与之相反，在编译链接时并没有把库文件的代码加入到可执行文件中，而是在程序执行时由运行时链接文件加载库，这样可以节省系统的开销。所以动态库也叫共享库，动态库一般后缀名为 <code>.so</code>，如前面所述的 <code>libc.so.6</code> 就是动态库，<code>gcc</code> 在编译时默认使用动态库</p><h1 id="Linux自动化构建工具Makefile"><a href="#Linux自动化构建工具Makefile" class="headerlink" title="Linux自动化构建工具Makefile"></a>Linux自动化构建工具Makefile</h1><p><code>make</code> 是一条命令，<code>makefile</code> 是一个文件，两个搭配使用，完成项目自动化构建</p><p>通常我们需要不断的进行 <code>gcc</code> &#x2F; <code>g++</code> 编译、<code>rm</code> 删除执行文件等等指令，如果有大量文件需要多次重复以上操作的话，那么每次都手动输入一大长串必然是麻烦的，因此就需要编写 <code>Makefile</code>（ <code>makefile</code> 也行，大小写无所谓）文件自动化使用指令</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/757b6617e4744bcd9bfc840ea9ea0ab2.png" alt="在这里插入图片描述"></p><p>如图所示可解释为：</p><p><code>processBar</code> 可执行文件依赖于 <code>processBar.c、main.c</code>，<code>$^</code> 表示 <code>:</code> 后面的文件，<code>$@</code> 表示 <code>:</code> 前面的文件，直接写文件名也可以，不过用符号比较方便就是了，下面的 <code>clean</code> 同理，<code>:</code> 后面是空的表示不依赖于任何文件就可以执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar.c  processBar.h</span><br><span class="line"></span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ make processBar</span><br><span class="line">gcc processBar.c main.c -o processBar </span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar  processBar.c  processBar.h</span><br><span class="line"></span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ make clean</span><br><span class="line"><span class="built_in">rm</span> -rf processBar</span><br><span class="line">[zzh_test@hcss-ecs-6aa4 progressbar]$ <span class="built_in">ls</span></span><br><span class="line">main.c  makefile  processBar.c  processBar.h</span><br></pre></td></tr></table></figure><p>通常使用 <code>make+冒号前的依赖名</code> 的方式执行自动化，如果只输入 <code>make</code> 指令的话默认执行第一条自动化指令，被依赖的文件总会更新，所以要多次执行 <code>make processBar</code> 的指令</p><p><code>make</code> 的默认行为是：基于时间戳判断更新，检查目标是否是一个已存在的文件，如果文件存在且没有更新（即依赖项未变化），则跳过该目标的命令。像 <code>clean</code> 这种没有具体依赖目标的叫做 <code>伪目标</code></p><p>但有些场景下，目标并不是实际文件（比如常见的 <code>clean</code>、<code>all</code>、<code>install</code> 等），若目录中恰好有与这些目标同名的文件（比如名为 <code>clean</code> 的文件），<code>make</code> 会误将其当作 “已完成的目标文件”，认为无需执行，从而跳过本应运行的命令（如 <code>rm -f *.o</code>），导致清理、构建等预期操作失败</p><p>因此需要用 <code>.PHONY</code> 声明伪目标 —— 强制 <code>make</code> 忽略同名文件，始终执行命令</p><p>🔥<strong>值得注意的是：</strong> </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hello:hello.o </span><br><span class="line">gcc hello.o -o hello </span><br><span class="line"></span><br><span class="line">hello.o:hello.s </span><br><span class="line">gcc -c hello.s -o hello.o </span><br><span class="line"></span><br><span class="line">hello.s:hello.i </span><br><span class="line">gcc -S hello.i -o hello.s </span><br><span class="line"></span><br><span class="line">hello.i:hello.c </span><br><span class="line">gcc -E hello.c -o hello.i</span><br></pre></td></tr></table></figure><p><code>make</code> 会一层又一层地去找文件的依赖关系，直到最终编译出第一个目标文件，在找寻的过程中，如果出现错误，比如最后被依赖的文件找不到，那么 <code>make</code> 就会直接退出，并报错，而对于所定义的命令的错误，或是编译不成功，<code>make</code> 根本不理，<code>make</code> 只管文件的依赖性，即如果在我找了依赖关系之后，冒号后面的文件还是不在，那么对不起，我就不工作啦</p><h1 id="Linux调试器gdb"><a href="#Linux调试器gdb" class="headerlink" title="Linux调试器gdb"></a>Linux调试器gdb</h1><p><code>Linux</code> 系统中，程序的发布默认是 <code>release</code> 版本，无法直接发布，所以调试的前提是处于 <code>debug</code> 版本，那么在 <code>gcc</code> &#x2F; <code>g++</code> 编译时要加上 <code>-g</code> 使文件以 <code>debug</code> 版本输出</p><p><code>gdb</code> 是用来调试可执行文件或者目标文件的，所以用 <code>gdb 目标文件</code> 指令启动调试器</p><p>以下是 <code>gdb</code> 代码调试时的指令</p><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/a2741ed9a16149e6b82fb59c7a2c86ac.png" alt="在这里插入图片描述"><br>一般我们还是在 <code>VS</code> 里调试比较方便，因此 <code>gdb</code> 的调试就不过多叙述</p><hr><h1 id="希望读者们多多三连支持"><a href="#希望读者们多多三连支持" class="headerlink" title="希望读者们多多三连支持"></a>希望读者们多多三连支持</h1><h1 id="小编会继续更新"><a href="#小编会继续更新" class="headerlink" title="小编会继续更新"></a>小编会继续更新</h1><h1 id="你们的鼓励就是我前进的动力！"><a href="#你们的鼓励就是我前进的动力！" class="headerlink" title="你们的鼓励就是我前进的动力！"></a>你们的鼓励就是我前进的动力！</h1><p><img src="https://picture-bed000.oss-cn-shenzhen.aliyuncs.com/5893ed3a6c4a48d6b27698290c42de27.png" alt="请添加图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 运维 </tag>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【Linux操作系统】简学深悟启示录：Linux权限</title>
       <link href="/2025/07/14/Linux/Linux%E6%9D%83%E9%99%90/"/>
       <url>/2025/07/14/Linux/Linux%E6%9D%83%E9%99%90/</url>
@@ -420,9 +449,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 哈希 </tag>
-            
             <tag> stl </tag>
+            
+            <tag> 哈希 </tag>
             
             <tag> unordered_map </tag>
             
@@ -596,9 +625,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 二叉搜索树 </tag>
-            
             <tag> stl </tag>
+            
+            <tag> 二叉搜索树 </tag>
             
             <tag> map </tag>
             
@@ -803,9 +832,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> priority_queue </tag>
             
@@ -836,9 +865,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> stack </tag>
             
@@ -869,9 +898,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> list </tag>
             
@@ -1169,9 +1198,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> list </tag>
             
@@ -1200,9 +1229,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> vector </tag>
             
@@ -1231,9 +1260,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> vector </tag>
             
@@ -1293,9 +1322,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> string </tag>
             
@@ -1324,9 +1353,9 @@
             
             <tag> C++ </tag>
             
-            <tag> stl </tag>
-            
             <tag> 开发语言 </tag>
+            
+            <tag> stl </tag>
             
             <tag> string </tag>
             
